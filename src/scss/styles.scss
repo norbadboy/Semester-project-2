@@ -1,0 +1,47 @@
+$backGroundColor: #f2f1f6;
+$btnPrimaryColor: #22005de5;
+$btnSecondaryColor: #5d55af;
+$fontFamily: "Poppins", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fontFamily;
+}
+
+body {
+  background-color: $backGroundColor;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-color: $btnPrimaryColor;
+  border-color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+  background-color: $btnSecondaryColor;
+  border-color: #fff;
+}
+
+.btn-outline-primary,
+.btn-outline-primary:hover {
+  color: #000;
+  border: 2px solid;
+}
+
+.navbar {
+  -webkit-backdrop-filter: blur(3.3px);
+  backdrop-filter: blur(3.3px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+//body
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-gap: 1rem;
+  padding: 1rem;
+}
