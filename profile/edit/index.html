@@ -22,11 +22,11 @@
     <script src="https://kit.fontawesome.com/87903c1d5c.js" crossorigin="anonymous"></script>
     <title>EasyBid - Listing</title>
   </head>
-  <body class="min-vh-100 d-flex flex-column overflow-scroll">
+  <body class="min-vh-100 d-flex flex-column">
     <header class="py-3 sticky-top">
       <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="/listing/homepage/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
           </a>
           <button
@@ -72,8 +72,8 @@
       </nav>
     </header>
     <main class="flex-grow-1 container-fluid mt-4">
-      <section class="profileListing mt-4 d-flex justify-content-center flex-column">
-        <div class="listContainer mt-3 col-12 col-md-6 rounded" id="registeredListings"></div>
+      <section>
+        <div id="profileContainer"></div>
       </section>
     </main>
 
@@ -86,8 +86,7 @@
 </html>
 
 <script type="module">
-  import { renderRegisteredList, renderUserCredit } from "/src/js/api/listing/registeredList.mjs";
+  import { renderProfile } from "/src/js/api/profile/renderProfile.mjs";
 
-  await renderRegisteredList();
-  await renderUserCredit();
+  await renderProfile();
 </script>

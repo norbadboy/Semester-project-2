@@ -9,7 +9,9 @@ export function loginListener() {
       const form = event.target;
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
-
+      console.log(form);
+      console.log(formData);
+      console.log(profile);
       //send it to the API
       login(profile);
     });

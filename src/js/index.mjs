@@ -1,5 +1,6 @@
 import { registerListener } from "./listeners/auth/register.mjs";
 import { loginListener } from "./listeners/auth/login.mjs";
+import { logoutListener } from "/src/js/listeners/auth/logout.mjs";
 
 const path = window.location.pathname;
 
@@ -8,4 +9,6 @@ if (path === "/profile/register/") {
   registerListener();
 } else if (path === "/profile/login/") {
   loginListener();
+} else if (path === "/listing/homepage/") {
+  logoutListener();
 }
