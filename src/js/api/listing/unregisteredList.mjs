@@ -1,17 +1,13 @@
 import { getList } from "/src/js/api/listing/getList.mjs";
 import { searchListener } from "/src/js/tools/searchBar/index.mjs";
 
-export async function renderList() {
-  const list = await getList();
-
-  searchListener(list);
-
+export async function renderList(list) {
   const listContainer = document.querySelector(".listContainer");
   listContainer.innerHTML = "";
   list.forEach((item) => {
     const bids = item.bids;
     const onlyAmountBids = bids.map((bid) => bid.amount);
-    const highestBid = Math.max(...onlyAmountBids);
+    const highestBid = onlyAmountBids.length > 0 ? Math.max(...onlyAmountBids) : 0;
 
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");

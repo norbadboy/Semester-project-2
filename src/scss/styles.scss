@@ -50,7 +50,13 @@ body {
   font-weight: 600;
   margin-right: 10px;
 }
-
+.itemDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 //body
 .listContainer {
   display: grid;

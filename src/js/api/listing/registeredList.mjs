@@ -9,11 +9,13 @@ function renderListingInfo(item, highestBid) {
   <h3>${item.title}</h3>
 </div>
 <div class="itemImage">
-   <img src="${item.media}" alt="${item.title}" class="img-thumbnail">
+   <img src="${item.media}" alt="${
+    item.title
+  }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
 </div>
-<div class="itemDescription mt-3 d-flex">
+<div class="itemDescription mt-3 d-flex flex-column">
                                 <p class="describeTitle">Description:</p>
-                                <p>${item.description}</p>
+                                <p class="itemDescription">${item.description}</p>
                                 </div>
 <div class="itemBid">
   <p>Amount of bids: ${item._count.bids}</p>
@@ -77,34 +79,9 @@ export async function renderRegisteredList() {
                              <div >
                              </div>
                                 ${renderListingInfo(item, highestBid)}
-
-                                <div> 
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-                                  Launch demo modal
-                                </button>
-                                
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        ...
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
                                 <ul>
-                                      ${renderBidLog(bids)}
+                                ${renderBidLog(bids)}
+
                                       </ul>
                                 </div>
                             </div>

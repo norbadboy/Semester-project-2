@@ -40,10 +40,9 @@
                   id="searchInput"
                   name="term"
                   value=""
-                  required
                   minlength="3"
                 />
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                   <i class="fas fa-search"></i>
                 </button>
               </form>
@@ -81,6 +80,28 @@
 
 <script type="module">
   import { renderList } from "/src/js/api/listing/unregisteredList.mjs";
+  import { getList } from "/src/js/api/listing/getList.mjs";
 
-  await renderList();
+  let list = await getList();
+  renderList(list);
+
+  const searchForm = document.getElementById("searchForm");
+
+  searchForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const searchTerm = form.term.value;
+    if (searchTerm == "") {
+      return renderList(list);
+    } else {
+      const filteredList = list.filter((item) => {
+        return (
+          item.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.description?.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      });
+
+      renderList(filteredList);
+    }
+  });
 </script>
