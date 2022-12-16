@@ -7,11 +7,14 @@ import { bidListener } from "/src/js/listeners/listing/bid.mjs";
 function renderListingInfo(item, highestBid) {
   return `<div class="itemInfo">
   <h3>${item.title}</h3>
-  <p>${item.description}</p>
 </div>
 <div class="itemImage">
    <img src="${item.media}" alt="${item.title}" class="img-thumbnail">
 </div>
+<div class="itemDescription mt-3 d-flex">
+                                <p class="describeTitle">Description:</p>
+                                <p>${item.description}</p>
+                                </div>
 <div class="itemBid">
   <p>Amount of bids: ${item._count.bids}</p>
   <p class="text-info">Highest bid: ${highestBid}</p>
@@ -52,6 +55,14 @@ function renderBidLog(bids) {
 
 export async function renderRegisteredList() {
   const list = await getList();
+
+  const userName = document.getElementById("userName");
+  const userAvatar = document.getElementById("userAvatar");
+
+  const user = await load("user");
+  userName.innerHTML = `<a class="nav-link" id="navUserName" href="/profile/edit/">${user.name}</a>`;
+  userAvatar.innerHTML = `<img src="${user.avatar}" alt="${user.name}" class="img-thumbnail" style="width: 60px; height: 60px">`;
+
   const listContainer = document.querySelector(".listContainer");
   listContainer.innerHTML = "";
   list.forEach((item) => {
@@ -62,23 +73,46 @@ export async function renderRegisteredList() {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
-                             <div class="card mt-3 p-4" style="height: 600px;">
+                             <div class="card text-center mt-3 p-4" style="height: 1000px; overflow: scroll">
+                             <div >
+                             </div>
                                 ${renderListingInfo(item, highestBid)}
 
-                                <div>
-                                Bids Log
-                                <button onclick="toggleBidLog()">
-                                show bid log
+                                <div> 
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                                  Launch demo modal
                                 </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        ...
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 <ul>
-                                ${renderBidLog(bids)}
-                                </ul>
+                                      ${renderBidLog(bids)}
+                                      </ul>
                                 </div>
                             </div>
             
     `;
     listContainer.appendChild(itemContainer);
   });
+
   bidListener();
   return list;
 }

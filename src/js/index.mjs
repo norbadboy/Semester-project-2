@@ -1,6 +1,7 @@
 import { registerListener } from "./listeners/auth/register.mjs";
 import { loginListener } from "./listeners/auth/login.mjs";
 import { logoutListener } from "/src/js/listeners/auth/logout.mjs";
+import { createListListener } from "/src/js/listeners/listing/createList.mjs";
 
 const path = window.location.pathname;
 
@@ -11,4 +12,5 @@ if (path === "/profile/register/") {
   loginListener();
 } else if (path === "/listing/homepage/") {
   logoutListener();
+  createListListener();
 }

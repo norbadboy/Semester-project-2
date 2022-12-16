@@ -22,9 +22,9 @@
     <script src="https://kit.fontawesome.com/87903c1d5c.js" crossorigin="anonymous"></script>
     <title>EasyBid - Listing</title>
   </head>
-  <body class="min-vh-100 d-flex flex-column overflow-scroll">
+  <body class="min-vh-100 d-flex flex-column">
     <header class="py-3 sticky-top">
-      <nav class="navbar fixed-top navbar-expand-lg">
+      <nav class="navbar fixed-top navbar-toggler">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
@@ -41,29 +41,33 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
-            <div class="input-group">
-              <div class="form-outline"></div>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-primary" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
+            <div class="input-group mt-3">
+              <div class="form-outline">
+                <form id="searchForm" class="d-flex">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    name="term"
+                    value=""
+                    required
+                    minlength="3"
+                  />
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
             </div>
-            <ul
-              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-              style="--bs-scroll-height: 150px"
-            >
-              <li class="" id="userCredit"><a class="nav-link" href="#"></a> f</li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile/edit/">Profile</a>
+            <ul class="navbar-nav me-auto my-3 my-lg-0">
+              <li class="nav-item d-flex mt-3">
+                <div id="userAvatar"></div>
+                <div id="userName"></div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mt-3" id="userCredit"><a class="nav-link"></a></li>
+              <li class="nav-item mt-2 mb-2">
                 <a href="#" class="btn btn-secondary" type="button" id="logoutButton">Logout</a>
               </li>
             </ul>
@@ -72,8 +76,58 @@
       </nav>
     </header>
     <main class="flex-grow-1 container-fluid mt-4">
+      <section class="newListing d-flex justify-content-center">
+        <div class="card d-flex flex-column mt-5 p-3">
+          <h2 class="text-center">New Listing</h2>
+          <form action="/listing/homepage/" class="p-3 rounded" id="createListingForm">
+            <div class="d-flex flex-column">
+              <textarea
+                name="title"
+                id="createListingTitle"
+                cols="40"
+                rows="1"
+                placeholder="Title"
+                class="rounded px-2 py-1 mb-2"
+                required
+              ></textarea>
+              <textarea
+                name="description"
+                id="createListingDescription"
+                cols="40"
+                rows="3"
+                placeholder="Description"
+                class="rounded px-2 py-1 mb-2"
+              ></textarea>
+              <input
+                name="media"
+                type="url"
+                id="createListingMedia"
+                placeholder="Image URL"
+                class="rounded px-2 py-1 mb-2"
+              />
+            </div>
+            <div>
+              <label for="">Deadline Date:</label>
+              <input
+                class="form-control bg-info text-light"
+                type="datetime-local"
+                id="createListingDeadline"
+                name="endsAt"
+                required
+              />
+            </div>
+            <div class="mt-1">
+              <button class="rounded" type="button" id="createListingButton">Create</button>
+            </div>
+          </form>
+        </div>
+      </section>
       <section class="profileListing mt-4 d-flex justify-content-center flex-column">
-        <div class="listContainer mt-3 col-12 col-md-6 rounded" id="registeredListings"></div>
+        <div class="container">
+          <div class="justify-content-around">
+            <div class="listContainer" id="registeredListings"></div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -87,7 +141,31 @@
 
 <script type="module">
   import { renderRegisteredList, renderUserCredit } from "/src/js/api/listing/registeredList.mjs";
+  import { createList } from "/src/js/api/listing/createList.mjs";
 
+  // render all listings first time page loads
   await renderRegisteredList();
   await renderUserCredit();
+
+  const createListingButton = document.getElementById("createListingButton");
+  const createListingTitle = document.getElementById("createListingTitle");
+  const createListingDescription = document.getElementById("createListingDescription");
+  const createListingMedia = document.getElementById("createListingMedia");
+  const createListingDeadline = document.getElementById("createListingDeadline");
+
+  createListingButton.addEventListener("click", async () => {
+    const listData = {
+      title: createListingTitle.value,
+      description: createListingDescription.value,
+      media: [createListingMedia.value],
+      endsAt: createListingDeadline.value,
+    };
+
+    if (listData.title && listData.endsAt && listData.description && listData.media) {
+      await createList(listData);
+      await renderRegisteredList();
+    } else {
+      alert("Please fill in the required fields");
+    }
+  });
 </script>

@@ -8,7 +8,7 @@ const method = "POST";
 export async function createList(listData) {
   const createListURL = API_AUCTION_PATH + action;
   const response = await autFetch(createListURL, {
-    method: method,
+    method,
     body: JSON.stringify(listData),
   });
 

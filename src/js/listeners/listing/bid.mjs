@@ -14,7 +14,6 @@ export function bidListener() {
         //       //send it to the API
         giveBid(bidData);
         //     });
-        console.log(bidData);
       });
     });
   }
