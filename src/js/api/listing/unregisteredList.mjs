@@ -1,6 +1,3 @@
-import { getList } from "/src/js/api/listing/getList.mjs";
-import { searchListener } from "/src/js/tools/searchBar/index.mjs";
-
 export async function renderList(list) {
   const listContainer = document.querySelector(".listContainer");
   listContainer.innerHTML = "";
