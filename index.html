@@ -29,7 +29,7 @@
           <a class="navbar-brand" href="/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
           </a>
-          <div class="input-group">
+          <div>
             <div class="form-outline">
               <form id="searchForm" class="d-flex">
                 <input
@@ -41,6 +41,7 @@
                   name="term"
                   value=""
                   minlength="3"
+                  style="width: 360px"
                 />
                 <button type="submit" class="btn btn-primary">
                   <i class="fas fa-search"></i>
@@ -56,9 +57,13 @@
       </nav>
     </header>
     <main class="flex-grow-1 container-fluid mt-4">
-      <section class="my-3">
-        <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+      <section class="d-flex mt-4 justify-content-center">
+        <div>
+          <img
+            src="/assets/images/frontpage.jpg"
+            alt="bid for a good cause"
+            class="frontPageImage d-flex"
+          />
         </div>
       </section>
       <section class="mt-3">

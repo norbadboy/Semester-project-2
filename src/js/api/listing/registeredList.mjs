@@ -1,4 +1,3 @@
-import { renderRegisteredListTemplate } from "/src/js/templates/listing/registeredListTemplate.mjs";
 import { load } from "/src/js/storage/load.mjs";
 import { getList } from "/src/js/api/listing/getList.mjs";
 import { getCredit } from "/src/js/api/listing/getCredit.mjs";
@@ -6,7 +5,17 @@ import { bidListener } from "/src/js/listeners/listing/bid.mjs";
 
 function renderListingInfo(item, highestBid) {
   return `<div class="itemInfo">
-  <h3>${item.title}</h3>
+  <div class="d-flex">
+  <div class="sellerImage">
+         <img src="${item.seller.avatar}" alt="${
+    item.seller.name
+  }" class="img-thumbnail" style="width: 60px; height: 60px">
+  </div>
+   <div class="sellerName">
+         <p>${item.seller.name}</p>
+   </div>
+  </div>
+  <h1>${item.title}</h1>
 </div>
 <div class="itemImage">
    <img src="${item.media}" alt="${
