@@ -84,7 +84,7 @@ export async function renderRegisteredList() {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
-                             <div class="card text-center mt-3 p-4" style="height: 1000px; overflow: scroll">
+                             <div class="card cardBody text-center mt-3 p-4" style="height: 1000px; overflow: scroll">
                              <div >
                              </div>
                                 ${renderListingInfo(item, highestBid)}

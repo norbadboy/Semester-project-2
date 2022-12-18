@@ -5,8 +5,12 @@
   font-family: "Poppins", sans-serif;
 }
 
+.cardBody {
+  background-color: #f9f9f9;
+}
+
 body {
-  background-color: #f2f1f6;
+  background-color: #d9c6f1;
 }
 
 .btn-primary,
@@ -41,20 +45,20 @@ body {
   color: #2e2828;
 }
 
+#loginButton {
+  margin-right: 7px;
+}
+
 h1 {
   font-size: 34px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 44px;
   color: #2e2828;
 }
 
 p {
   margin-bottom: 0;
-}
-
-.describeTitle {
-  font-weight: 600;
-  margin-right: 10px;
+  letter-spacing: 2px;
 }
 
 .itemDescription {
@@ -63,11 +67,15 @@ p {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 80px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .numberOfBidsText,
 .highestBidText {
   font-style: italic;
+  margin-bottom: 5px;
 }
 
 .numberOfBidsText {
@@ -76,8 +84,8 @@ p {
 
 .listContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   padding: 1rem;
 }
 
@@ -96,17 +104,16 @@ p {
      object-fit: contain;
 }
 
-@media (max-width: 1024px) {
-  .listContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+@media (max-width: 990px) {
+  .navbarContainer {
+    flex-direction: column;
+  }
+  .navbarButtonContainer,
+.form-outline {
+    margin-top: 17px;
   }
 }
 @media (max-width: 768px) {
-  .listContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-@media (max-width: 425px) {
   .listContainer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
