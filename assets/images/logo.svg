@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="46" viewBox="0 0 148 46">
+  <g id="Component_5_1" data-name="Component 5 – 1" transform="translate(1)">
+    <g id="Group_4" data-name="Group 4" transform="translate(1 -9)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="66" height="40" rx="5" transform="translate(80 13)" fill="#5d55af"/>
+      <text id="Bid" transform="translate(113 46)" fill="#fff" font-size="35" font-family="Roboto-Black, Roboto" font-weight="800" letter-spacing="0.025em"><tspan x="-26.817" y="0">Bid</tspan></text>
+    </g>
+    <text id="Easy" transform="translate(38 37)" fill="#5d55af" font-size="35" font-family="Roboto-Black, Roboto" font-weight="800" letter-spacing="0.025em"><tspan x="-38.423" y="0">Easy</tspan></text>
+  </g>
+</svg>

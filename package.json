@@ -1,0 +1,30 @@
+{
+  "name": "semester-project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass input-directory:output-directory",
+    "watch": "sass --watch src/scss:dist/css & live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norbadboy/Semester-project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/norbadboy/Semester-project-2/issues"
+  },
+  "homepage": "https://github.com/norbadboy/Semester-project-2#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "live-server": "^1.1.0",
+    "sass": "^1.56.1"
+  }
+}

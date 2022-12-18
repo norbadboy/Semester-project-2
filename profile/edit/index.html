@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An auction webpage" />
+    <meta name="author" content="Thong Trong Ho" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/src/scss/styles.css" />
+    <script src="/src/js/index.mjs" defer type="module"></script>
+    <script src="https://kit.fontawesome.com/87903c1d5c.js" crossorigin="anonymous"></script>
+    <title>EasyBid - Listing</title>
+  </head>
+  <body class="min-vh-100 d-flex flex-column">
+    <header class="py-3 sticky-top">
+      <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/listing/homepage/">
+            <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <div class="input-group">
+              <div class="form-outline"></div>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-primary" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
+            <ul
+              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+              style="--bs-scroll-height: 150px"
+            >
+              <li class="" id="userCredit"><a class="nav-link" href="#"></a> f</li>
+              <li class="nav-item">
+                <a class="nav-link" href="/profile/edit/">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="btn btn-secondary" type="button" id="logoutButton">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-grow-1 container-fluid mt-4">
+      <section>
+        <div id="profileContainer"></div>
+      </section>
+    </main>
+
+    <footer class="bottom-0 py-3">
+      <div class="container-fluid">
+        <div class="col">© 2022 Thong Ho</div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script type="module">
+  import { renderProfile } from "/src/js/api/profile/renderProfile.mjs";
+
+  await renderProfile();
+</script>
