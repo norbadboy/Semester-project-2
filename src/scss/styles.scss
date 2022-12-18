@@ -1,6 +1,9 @@
 $backGroundColor: #f2f1f6;
 $btnPrimaryColor: #22005de5;
 $btnSecondaryColor: #5d55af;
+$fontColor: #2e2828;
+$fontSecondaryColor: #6a6a6f;
+$primaryColor: #b4a1cc;
 $fontFamily: "Poppins", sans-serif;
 
 * {
@@ -42,10 +45,16 @@ body {
   color: $btnPrimaryColor;
 }
 #navUserName {
-  color: #000;
+  color: $fontColor;
 }
 
 //text
+h1 {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 44px;
+  color: $fontColor;
+}
 p {
   margin-bottom: 0;
 }
@@ -64,6 +73,9 @@ p {
 .highestBidText {
   font-style: italic;
 }
+.numberOfBidsText {
+  color: $fontSecondaryColor;
+}
 
 //body
 .listContainer {
@@ -74,10 +86,12 @@ p {
 }
 
 //image
+
 .itemImage img {
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
+  border-radius: 10px;
 }
 .frontPageImage {
   width: 100%;

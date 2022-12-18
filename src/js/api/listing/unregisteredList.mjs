@@ -9,12 +9,12 @@ export async function renderList(list) {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
-                             <div class="card my-3 p-4" style="height: 650px;">
+                             <div class="card my-3 p-4" style="height: 590px">
                                 <div class="itemInfo mt-4">
                                     <h1>${item.title}</h1>
                                 </div>
                                 <div class="itemImage mt-3">
-                                     <img src="${item.media}" alt="${item.title}" class="img-thumbnail">
+                                     <img src="${item.media}" alt="${item.title}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
                                 </div>
                                 <div class="itemBid mt-3">
                                     <p class="numberOfBidsText">Number of bids: ${item._count.bids}</p>
