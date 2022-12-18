@@ -6,11 +6,12 @@
 }
 
 .cardBody {
-  background-color: #f9f9f9;
+  background-color: #fff6ff;
+  border-color: transparent;
 }
 
 body {
-  background-color: #d9c6f1;
+  background-color: #f1e7fd;
 }
 
 .btn-primary,
@@ -32,8 +33,8 @@ body {
 }
 
 .navbar {
-  -webkit-backdrop-filter: blur(3.3px);
-  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -49,6 +50,17 @@ body {
   margin-right: 7px;
 }
 
+#userName {
+  margin-left: 14px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.userImage {
+  border: 2px solid #2e2828;
+  border-radius: 70%;
+}
+
 h1 {
   font-size: 34px;
   font-weight: 500;
@@ -57,8 +69,22 @@ h1 {
 }
 
 p {
+  color: #2e2828;
+}
+
+p,
+a {
   margin-bottom: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+}
+
+.itemTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px;
 }
 
 .itemDescription {
@@ -80,18 +106,23 @@ p {
 
 .numberOfBidsText {
   color: #6a6a6f;
+  font-weight: 400;
+}
+
+.highestBidText {
+  font-weight: 400;
 }
 
 .listContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+  gap: 45px 35px;
   padding: 1rem;
 }
 
 .itemImage img {
   width: 100%;
-  height: 250px;
+  height: 330px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
@@ -104,7 +135,22 @@ p {
      object-fit: contain;
 }
 
-@media (max-width: 990px) {
+.fa-heart {
+  color: rgba(34, 0, 93, 0.8980392157);
+  font-size: 30px;
+  border: solid 3.4px rgba(34, 0, 93, 0.8980392157);
+  border-radius: 50%;
+  padding: 7px;
+  margin-left: 40px;
+}
+
+.fa-heart:hover {
+  color: #fff;
+  background-color: rgba(34, 0, 93, 0.8980392157);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 990px) {
   .navbarContainer {
     flex-direction: column;
   }
@@ -113,8 +159,8 @@ p {
     margin-top: 17px;
   }
 }
-@media (max-width: 768px) {
-  .listContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+@media only screen and (max-width: 465px) {
+  .itemImage img {
+    height: 200px;
   }
 }/*# sourceMappingURL=styles.css.map */

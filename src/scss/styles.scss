@@ -1,9 +1,9 @@
-$backGroundColor: #f9f9f9;
+$backGroundColor: #fff6ff;
 $btnPrimaryColor: #22005de5;
 $btnSecondaryColor: #5d55af;
 $fontColor: #2e2828;
 $fontSecondaryColor: #6a6a6f;
-$primaryColor: #d9c6f1;
+$primaryColor: #f1e7fd;
 $fontFamily: "Poppins", sans-serif;
 
 * {
@@ -16,6 +16,7 @@ $fontFamily: "Poppins", sans-serif;
 //colors
 .cardBody {
   background-color: $backGroundColor;
+  border-color: transparent;
 }
 body {
   background-color: $primaryColor;
@@ -36,8 +37,8 @@ body {
   border: 2px solid;
 }
 .navbar {
-  -webkit-backdrop-filter: blur(3.3px);
-  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
   background-color: rgba(255, 255, 255, 0.5);
 }
 #navUserName:hover {
@@ -51,6 +52,15 @@ body {
 #loginButton {
   margin-right: 7px;
 }
+#userName {
+  margin-left: 14px;
+  font-weight: 600;
+  font-size: 25px;
+}
+.userImage {
+  border: 2px solid $fontColor;
+  border-radius: 70%;
+}
 
 //text
 h1 {
@@ -60,8 +70,20 @@ h1 {
   color: $fontColor;
 }
 p {
+  color: $fontColor;
+}
+p,
+a {
   margin-bottom: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+}
+.itemTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px;
 }
 .itemDescription {
   display: -webkit-box;
@@ -80,20 +102,24 @@ p {
 }
 .numberOfBidsText {
   color: $fontSecondaryColor;
+  font-weight: 400;
+}
+.highestBidText {
+  font-weight: 400;
 }
 
 //body
 .listContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+  gap: 45px 35px;
   padding: 1rem;
 }
 
 //image
 .itemImage img {
   width: 100%;
-  height: 250px;
+  height: 330px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -103,8 +129,23 @@ p {
   object-fit: contain;
 }
 
+//icons
+.fa-heart {
+  color: $btnPrimaryColor;
+  font-size: 30px;
+  border: solid 3.4px $btnPrimaryColor;
+  border-radius: 50%;
+  padding: 7px;
+  margin-left: 40px;
+}
+.fa-heart:hover {
+  color: #fff;
+  background-color: $btnPrimaryColor;
+  cursor: pointer;
+}
+
 //breakpoints
-@media (max-width: 990px) {
+@media only screen and (max-width: 990px) {
   .navbarContainer {
     flex-direction: column;
   }
@@ -113,10 +154,9 @@ p {
     margin-top: 17px;
   }
 }
-@media (max-width: 768px) {
-  .listContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+@media only screen and (max-width: 465px) {
+  .itemImage img {
+    height: 200px;
   }
-}
-@media (max-width: 425px) {
 }

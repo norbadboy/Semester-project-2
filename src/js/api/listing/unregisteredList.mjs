@@ -10,7 +10,7 @@ export async function renderList(list) {
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
                              <div class="card cardBody p-4">
-                                <div class="itemInfo d-flex justify-content-center">
+                                <div class="itemTitle d-flex justify-content-center">
                                     <h1>${item.title.toUpperCase()}</h1>
                                 </div>
                                 <div class="itemImage mt-3">
@@ -18,7 +18,7 @@ export async function renderList(list) {
       item.title
     }" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
                                 </div>
-                                <div class="itemDescription my-3 d-flex flex-column">
+                                <div class="itemDescription my-3 d-flex">
                                 <p class="itemDescription">${item.description}</p>
                                 </div>
                                 <div class="itemBid my-3 d-flex justify-content-around">
@@ -27,8 +27,13 @@ export async function renderList(list) {
                                     }</p>
                                     <p class="highestBidText">Highest bid: ${highestBid}</p>
                                 </div>
-                                <div class="d-flex mt-2 justify-content-center">
+                                <div class="d-flex mt-3 justify-content-center">
                                 <a href="/profile/login/" class="btn btn-primary" type="button">Bid Now</a>
+                                <div class="d-flex align-items-center">
+                                <a href="/profile/login/">
+                                <i class="fa-regular fa-heart"></i> 
+                                </a>
+                                </div>
                                 </div>
                             </div>
             
