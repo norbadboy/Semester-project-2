@@ -79,7 +79,7 @@
       </nav>
     </header>
     <main class="flex-grow-1 container-fluid mt-4">
-      <section class="newListing d-flex justify-content-center">
+      <section class="newListing d-none justify-content-center">
         <div class="card d-flex flex-column mt-5 p-3">
           <h2 class="text-center">New Listing</h2>
           <form action="/listing/homepage/" class="p-3 rounded" id="createListingForm">
@@ -127,7 +127,9 @@
       </section>
       <section class="mt-4 d-flex justify-content-center flex-column">
         <div class="listBody">
-          <div class="listContainer" id="registeredListings"></div>
+          <div class="listContainer" id="registeredListings">
+            <h4 class="mt-2">Fetching listings...</h4>
+          </div>
         </div>
       </section>
     </main>
@@ -169,4 +171,9 @@
       alert("Please fill in the required fields");
     }
   });
+
+  const newListing = document.querySelector(".newListing");
+  setTimeout(() => {
+    newListing.classList.replace("d-none", "d-flex");
+  }, 0);
 </script>

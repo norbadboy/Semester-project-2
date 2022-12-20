@@ -15,6 +15,6 @@ export function handleSubmission() {
  `;
 
   setTimeout(() => {
-    window.location.assign("/");
+    window.location.assign("/profile/login/");
   }, 5000);
 }

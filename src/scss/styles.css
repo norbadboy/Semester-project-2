@@ -127,6 +127,20 @@ a {
   font-weight: 400;
 }
 
+.bidText {
+  font-weight: 400;
+}
+
+.bidText,
+.bidItemText {
+  font-size: 20px;
+}
+
+.bidItemText {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
 .listContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
@@ -168,9 +182,9 @@ a {
 }
 
 .fa-heart {
-  color: rgba(34, 0, 93, 0.8980392157);
+  color: #5d55af;
   font-size: 30px;
-  border: solid 3.4px rgba(34, 0, 93, 0.8980392157);
+  border: solid 3.4px #5d55af;
   border-radius: 50%;
   padding: 7px;
   margin-left: 40px;
@@ -178,8 +192,16 @@ a {
 
 .fa-heart:hover {
   color: #fff;
-  background-color: rgba(34, 0, 93, 0.8980392157);
+  background-color: #5d55af;
   cursor: pointer;
+}
+
+.fa-clock,
+.fa-dollar-sign {
+  margin-right: 10px;
+  color: #2e2828;
+  font-size: 21px;
+  padding-top: 4px;
 }
 
 @media only screen and (max-width: 990px) {

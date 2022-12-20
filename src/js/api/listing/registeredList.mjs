@@ -26,27 +26,22 @@ function renderListingInfo(item, highestBid) {
           <div class="itemDescription mt-3 d-flex"> 
             <p class="itemDescription">${item.description}</p>
           </div>
-          <div class="itemBid d-flex flex-column mt-3 justify-content-center">
-            <p>Amount of bids: ${item._count.bids}</p>
-            <p class="text-info">Highest bid: ${highestBid}</p>
-            <p>Ends at: ${new Date(item.endsAt).toLocaleString()}</p>
+          <div class="itemBid d-flex flex-column mt-3 align-items-start">
+            <div class="d-flex mt-1 justify-content-center">
+            <p class="bidText">Amount of bids: </p>
+            <p class="bidItemText">${item._count.bids}</p>
+            </div>
+            <div class="d-flex mt-1 justify-content-center">
+            <i class="fas fa-dollar-sign d-flex"></i>
+            <p class="bidText">Highest bid: </p>
+            <p class="bidItemText">${highestBid}</p>
+            </div>
+            <div class="d-flex mt-1 justify-content-center">
+            <i class="fas fa-clock"></i>
+            <p class="bidText">Ends at: </p>
+            <p class="bidItemText">${new Date(item.endsAt).toLocaleString()}</p>
+            </div>
           </div>
-        <div class="d-flex flex-grow-1" >
-          <form class="bidForm d-flex mt-4" style="margin: auto">
-            <input 
-              name="listingId"
-              value="${item.id}"
-              hidden/>
-            <input
-              class="form-control me-2"
-              type="number"
-              placeholder="Amount"
-              aria-label="amount"
-              name="amount"
-            />
-            <button class="btn btn-primary" id="bidButton" type="submit" onClick="window.location.reload();">Bid</button>
-          </form>
-        </div>
         `;
 }
 
@@ -81,25 +76,43 @@ export async function renderRegisteredList() {
   list.forEach((item) => {
     const bids = item.bids;
     const onlyAmountBids = bids.map((bid) => bid.amount);
-    const highestBid = Math.max(...onlyAmountBids);
+    const highestBid = onlyAmountBids.length > 0 ? Math.max(...onlyAmountBids) : 0;
 
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
-                             <div class="cardBody text-center mt-3 p-4" style="height: 900px;>
+                             <div class="cardBody rounded text-center mt-3 p-4">
                              <div >
                              </div class="d-flex mt-3 justify-content-center">
                                 ${renderListingInfo(item, highestBid)}
-                                <div class="dropdown dropend mt-4 d-flex justify-content-start">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                                Bids Info  </button>
-                                <ul class="dropdown-menu p-3">
-                                <li>
-                                ${renderBidLog(bids)} 
-                                </li>
-                                 </ul>
-                                 </div>
+                             <div class="d-flex flex-grow-1 justify-content-start mt-4" >
+                              <form class="bidForm d-flex mt-4">
+                               <input 
+                                name="listingId"
+                                value="${item.id}"
+                                hidden/>
+                               <input
+                                class="form-control me-2"
+                                type="number"
+                                placeholder="Amount"
+                                aria-label="amount"
+                                name="amount"
+                               />
+                              <button class="btn btn-primary" id="bidButton" type="submit" onClick="setTimeout(() => {
+                                window.location.reload();
+                              }, 1000);">Bid</button>
+                               </form>
+                                <div class="dropdown dropstart mt-4 d-flex justify-content-end flex-grow-1">
+                                <button type="button" class="btn btn-primary dropdown-toggle"         data-bs-toggle="dropdown">
+                                  Bids Info  </button>
+                                  <ul class="dropdown-menu p-3">
+                                    <li>
+                                     ${renderBidLog(bids)} 
+                                    </li>
+                                  </ul>
                                 </div>
+                               </div>
+                              </div>
                             </div>
             
     `;

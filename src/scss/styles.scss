@@ -119,6 +119,17 @@ a {
 .highestBidText {
   font-weight: 400;
 }
+.bidText {
+  font-weight: 400;
+}
+.bidText,
+.bidItemText {
+  font-size: 20px;
+}
+.bidItemText {
+  margin-left: 5px;
+  font-weight: 500;
+}
 
 //body
 .listContainer {
@@ -158,17 +169,24 @@ a {
 
 //icons
 .fa-heart {
-  color: $btnPrimaryColor;
+  color: $btnSecondaryColor;
   font-size: 30px;
-  border: solid 3.4px $btnPrimaryColor;
+  border: solid 3.4px $btnSecondaryColor;
   border-radius: 50%;
   padding: 7px;
   margin-left: 40px;
 }
 .fa-heart:hover {
   color: #fff;
-  background-color: $btnPrimaryColor;
+  background-color: $btnSecondaryColor;
   cursor: pointer;
+}
+.fa-clock,
+.fa-dollar-sign {
+  margin-right: 10px;
+  color: $fontColor;
+  font-size: 21px;
+  padding-top: 4px;
 }
 
 //breakpoints
