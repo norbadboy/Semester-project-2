@@ -27,7 +27,9 @@ body {
   border-color: #fff;
 }
 .btn-secondary,
-.btn-secondary:hover {
+.btn-secondary:hover,
+.registerButton,
+.registerButton:hover {
   background-color: $btnSecondaryColor;
   border-color: #fff;
 }
@@ -70,12 +72,22 @@ h1 {
   color: $fontColor;
 }
 p {
-  color: $fontColor;
+  font-size: 18px;
+  font-weight: 400;
+}
+a {
+  font-size: 18px;
+  font-weight: 400;
+}
+a:hover {
+  color: $btnPrimaryColor;
+  font-weight: 500;
 }
 p,
 a {
   margin-bottom: 0;
   letter-spacing: 1.5px;
+  color: $fontColor;
 }
 .itemTitle {
   display: -webkit-box;
@@ -114,6 +126,21 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
   gap: 45px 35px;
   padding: 1rem;
+}
+.registerMain {
+  width: auto;
+  height: auto;
+}
+.registerBody,
+.loginBody {
+  background-color: $backGroundColor;
+  padding: 40px;
+}
+#orBody {
+  margin-right: 15px;
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 22px;
 }
 
 //image

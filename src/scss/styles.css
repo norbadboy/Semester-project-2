@@ -21,7 +21,9 @@ body {
 }
 
 .btn-secondary,
-.btn-secondary:hover {
+.btn-secondary:hover,
+.registerButton,
+.registerButton:hover {
   background-color: #5d55af;
   border-color: #fff;
 }
@@ -69,13 +71,25 @@ h1 {
 }
 
 p {
-  color: #2e2828;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a:hover {
+  color: rgba(34, 0, 93, 0.8980392157);
+  font-weight: 500;
 }
 
 p,
 a {
   margin-bottom: 0;
   letter-spacing: 1.5px;
+  color: #2e2828;
 }
 
 .itemTitle {
@@ -118,6 +132,24 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
   gap: 45px 35px;
   padding: 1rem;
+}
+
+.registerMain {
+  width: auto;
+  height: auto;
+}
+
+.registerBody,
+.loginBody {
+  background-color: #fff6ff;
+  padding: 40px;
+}
+
+#orBody {
+  margin-right: 15px;
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 22px;
 }
 
 .itemImage img {
