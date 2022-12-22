@@ -23,39 +23,63 @@
     <title>EasyBid - Login</title>
   </head>
   <body class="min-vh-100 d-flex flex-column overflow-hidden">
-    <header class="py-3 sticky-top d-flex">
+    <header class="py-3 sticky-top">
       <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex">
           <a class="navbar-brand" href="/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
           </a>
-          <form class="d-flex mb-sm-0 me-sm-3" role="search">
-            <input
-              class="form-control me-1"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-primary" type="submit">Search</button>
-          </form>
-          <div>
-            <a href="/profile/login/" class="btn btn-primary" type="button">Sign In</a>
-            <a href="/profile/register/" class="btn btn-secondary" type="button">Get Started</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbarContainer d-flex flex-grow-1">
+              <div class="form-outline d-flex flex-grow-1">
+                <form id="searchForm" class="d-flex flex-grow-1 justify-content-end">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    name="term"
+                    value=""
+                    minlength="3"
+                    style="width: 360px"
+                  />
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
+              <div class="navbarButtonContainer d-flex flex-grow-1 justify-content-end">
+                <a href="/profile/login/" class="btn btn-primary" id="loginButton" type="button"
+                  >Sign In</a
+                >
+                <a href="/profile/register/" class="btn btn-secondary" type="button">Get Started</a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
     </header>
     <main class="flex-grow-1 container-fluid d-flex mt-lg-5 justify-content-center">
-      <main class="login-main d-flex justify-content-center text-dark">
-        <div
-          class="login-box d-flex flex-column justify-content-center align-items-center rounded p-4"
-        >
-          <div class="row justify-content-center">
-            <div class="card">
-              <h1 class="d-flex justify-content-center mt-2 mb-3 text-uppercase">Login</h1>
+      <div class="loginMain d-flex justify-content-center text-dark">
+        <div class="d-flex flex-column justify-content-center align-items-center rounded p-4">
+          <div class="justify-content-center">
+            <div class="card loginBody">
+              <h1 class="d-flex justify-content-center mt-2 mb-3 text-uppercase">Sign In</h1>
               <div class="login-text d-flex flex-column">
-                <p>Already have an account? Log in below.</p>
-                <a href="/profile/register/">Or create a new account.</a>
+                <p>Already have an account? Sign in below.</p>
+                <a href="/profile/register/">Or Get Started.</a>
               </div>
               <form id="loginForm" class="mt-4">
                 <div class="form-group mb-4">
@@ -91,14 +115,14 @@
                     class="btn btn-primary text-light"
                     type="submit"
                     id="submit"
-                    value="Sign in"
+                    value="Sign In"
                   />
                 </div>
               </form>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </main>
 
     <footer class="position-sticky bottom-0 py-3">
