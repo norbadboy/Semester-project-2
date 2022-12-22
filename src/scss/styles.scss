@@ -1,4 +1,5 @@
 $backGroundColor: #fff6ff;
+$backGround2Color: #fffbff;
 $btnPrimaryColor: #22005de5;
 $btnSecondaryColor: #5d55af;
 $fontColor: #2e2828;
@@ -7,6 +8,7 @@ $primaryColor: #f1e7fd;
 $fontFamily: "Poppins", sans-serif;
 $desktopWidth: 1400px;
 $mobileWidth: 900px;
+$marginBody: 0 20px;
 
 * {
   margin: 0;
@@ -17,12 +19,16 @@ $mobileWidth: 900px;
 
 //colors
 .cardBody,
-.newListingContainer {
+.newListingContainer,
+.footerContainer {
   background-color: $backGroundColor;
   border-color: transparent;
 }
 body {
   background-color: $primaryColor;
+}
+.newsLetterContainer {
+  background-color: $btnSecondaryColor;
 }
 .btn-primary,
 .btn-primary:hover {
@@ -76,6 +82,12 @@ h1 {
   font-size: 34px;
   font-weight: 500;
   line-height: 44px;
+  color: $fontColor;
+}
+h2 {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 30px;
   color: $fontColor;
 }
 p {
@@ -138,9 +150,55 @@ a {
   font-weight: 500;
 }
 
+//image
+.itemImage img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.frontPageImage {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+//icons and buttons
+.fa-heart {
+  color: $btnSecondaryColor;
+  font-size: 30px;
+  border: solid 3.4px $btnSecondaryColor;
+  border-radius: 50%;
+  padding: 7px;
+  margin-left: 40px;
+}
+.fa-heart:hover {
+  color: #fff;
+  background-color: $btnSecondaryColor;
+  cursor: pointer;
+}
+.fa-clock,
+.fa-dollar-sign {
+  margin-right: 10px;
+  color: $fontColor;
+  font-size: 21px;
+  padding-top: 4px;
+}
+.fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-pinterest {
+  color: $fontColor;
+  font-size: 26px;
+}
+.newsLetterEmailButton,
+.newsLetterEmailButton:hover {
+  border-color: transparent;
+}
+
 //body
 .newListingContainer {
-  margin: 0 20px;
+  margin: $marginBody;
 }
 .listContainer {
   display: grid;
@@ -175,41 +233,17 @@ a {
   margin: 50px;
 }
 
-//image
-.itemImage img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 10px;
+//footer
+.newsLetterContainer {
+  padding: 30px;
+  margin: $marginBody;
 }
-.frontPageImage {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
+.rowContentText {
+  margin-left: 20px;
 }
-
-//icons
-.fa-heart {
-  color: $btnSecondaryColor;
-  font-size: 30px;
-  border: solid 3.4px $btnSecondaryColor;
-  border-radius: 50%;
-  padding: 7px;
-  margin-left: 40px;
+.socialFollow a {
+  text-decoration: none;
 }
-.fa-heart:hover {
-  color: #fff;
-  background-color: $btnSecondaryColor;
-  cursor: pointer;
-}
-.fa-clock,
-.fa-dollar-sign {
-  margin-right: 10px;
-  color: $fontColor;
-  font-size: 21px;
-  padding-top: 4px;
-}
-
 //breakpoints
 @media (max-width: $desktopWidth) {
   .listContainer {
@@ -232,5 +266,8 @@ a {
   }
   #searchInput {
     width: 230px;
+  }
+  .socialFollow {
+    flex-direction: column;
   }
 }
