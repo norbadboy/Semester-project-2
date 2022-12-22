@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/scss:css",
+    "build": "sass src/scss:dist/css",
     "start": "live-server",
-    "watch": "sass --watch src/scss:css & live-server"
+    "watch": "sass --watch src/scss:dist/css & live-server"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/norbadboy/Semester-project-2#readme",
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "sass": "^1.56.1"
   },
   "devDependencies": {
     "eslint": "^8.30.0",
-    "live-server": "^1.1.0",
-    "sass": "^1.56.1"
+    "live-server": "^1.1.0"
   }
 }
