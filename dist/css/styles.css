@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.cardBody,
+.newListingContainer,
+.footerContainer {
+  background-color: #fff6ff;
+  border-color: transparent;
+}
+
+body {
+  background-color: #f1e7fd;
+}
+
+.newsLetterContainer {
+  background-color: #5d55af;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-color: rgba(34, 0, 93, 0.8980392157);
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.registerButton,
+.registerButton:hover {
+  background-color: #5d55af;
+  border-color: #fff;
+}
+
+.btn-outline-primary,
+.btn-outline-primary:hover {
+  color: #000;
+  border: 2px solid;
+}
+
+.navbar {
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#navUserName:hover {
+  color: rgba(34, 0, 93, 0.8980392157);
+}
+
+#navUserName {
+  color: #2e2828;
+}
+
+#loginButton {
+  margin-right: 7px;
+}
+
+#userName {
+  margin-left: 14px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.userImage {
+  border: 2px solid #2e2828;
+  border-radius: 70%;
+}
+
+#searchInput {
+  width: 360px;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 44px;
+  color: #2e2828;
+}
+
+h2 {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #2e2828;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a:hover {
+  color: rgba(34, 0, 93, 0.8980392157);
+  font-weight: 500;
+}
+
+p,
+a {
+  margin-bottom: 0;
+  letter-spacing: 1.5px;
+  color: #2e2828;
+}
+
+.itemTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px;
+}
+
+.itemDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 80px;
+  margin-top: 10px;
+  padding: 0px 15px;
+}
+
+.numberOfBidsText,
+.highestBidText {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.numberOfBidsText {
+  color: #6a6a6f;
+  font-weight: 400;
+}
+
+.highestBidText {
+  font-weight: 400;
+}
+
+.bidText {
+  font-weight: 400;
+}
+
+.bidText,
+.bidItemText {
+  font-size: 20px;
+}
+
+.bidItemText {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.itemImage img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.frontPageImage {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.fa-heart {
+  color: #5d55af;
+  font-size: 30px;
+  border: solid 3.4px #5d55af;
+  border-radius: 50%;
+  padding: 7px;
+  margin-left: 40px;
+}
+
+.fa-heart:hover {
+  color: #fff;
+  background-color: #5d55af;
+  cursor: pointer;
+}
+
+.fa-clock,
+.fa-dollar-sign {
+  margin-right: 10px;
+  color: #2e2828;
+  font-size: 21px;
+  padding-top: 4px;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-pinterest {
+  color: #2e2828;
+  font-size: 26px;
+}
+
+.newsLetterEmailButton,
+.newsLetterEmailButton:hover {
+  border-color: transparent;
+}
+
+.newListingContainer {
+  margin: 0 20px;
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 35px;
+  padding: 0 1rem;
+}
+
+.registerMain {
+  width: auto;
+  height: auto;
+}
+
+.registerBody,
+.loginBody {
+  background-color: #fff6ff;
+  padding: 40px;
+}
+
+#orBody {
+  margin-right: 15px;
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.itemDescriptionBody {
+  border: 1px solid;
+  border-color: #6a6a6f;
+  border-radius: 10px;
+}
+
+.lineStyle {
+  border: 1.2px solid rgba(34, 0, 93, 0.8980392157);
+  background-color: rgba(34, 0, 93, 0.8980392157);
+  width: 100%;
+  margin: 50px;
+}
+
+.newsLetterContainer {
+  padding: 30px;
+  margin: 0 20px;
+}
+
+.rowContentText {
+  margin-left: 20px;
+}
+
+.socialFollow a {
+  text-decoration: none;
+}
+
+@media (max-width: 1400px) {
+  .listContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bidForm {
+    width: 75%;
+  }
+}
+@media (max-width: 900px) {
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
+  .itemImage img {
+    height: 200px;
+  }
+  .bidForm {
+    width: 65%;
+  }
+  #searchInput {
+    width: 230px;
+  }
+  .socialFollow {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
