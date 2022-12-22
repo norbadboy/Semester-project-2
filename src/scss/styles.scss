@@ -5,6 +5,8 @@ $fontColor: #2e2828;
 $fontSecondaryColor: #6a6a6f;
 $primaryColor: #f1e7fd;
 $fontFamily: "Poppins", sans-serif;
+$desktopWidth: 1400px;
+$mobileWidth: 900px;
 
 * {
   margin: 0;
@@ -14,7 +16,8 @@ $fontFamily: "Poppins", sans-serif;
 }
 
 //colors
-.cardBody {
+.cardBody,
+.newListingContainer {
   background-color: $backGroundColor;
   border-color: transparent;
 }
@@ -25,6 +28,7 @@ body {
 .btn-primary:hover {
   background-color: $btnPrimaryColor;
   border-color: #fff;
+  color: #fff;
 }
 .btn-secondary,
 .btn-secondary:hover,
@@ -62,6 +66,9 @@ body {
 .userImage {
   border: 2px solid $fontColor;
   border-radius: 70%;
+}
+#searchInput {
+  width: 360px;
 }
 
 //text
@@ -105,7 +112,7 @@ a {
   text-overflow: ellipsis;
   height: 80px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 0px 15px;
 }
 .numberOfBidsText,
 .highestBidText {
@@ -132,11 +139,14 @@ a {
 }
 
 //body
+.newListingContainer {
+  margin: 0 20px;
+}
 .listContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
-  gap: 45px 35px;
-  padding: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 35px;
+  padding: 0 1rem;
 }
 .registerMain {
   width: auto;
@@ -152,6 +162,17 @@ a {
   margin-left: 5px;
   font-weight: 400;
   font-size: 22px;
+}
+.itemDescriptionBody {
+  border: 1px solid;
+  border-color: $fontSecondaryColor;
+  border-radius: 10px;
+}
+.lineStyle {
+  border: 1.2px solid $btnPrimaryColor;
+  background-color: $btnPrimaryColor;
+  width: 100%;
+  margin: 50px;
 }
 
 //image
@@ -190,18 +211,26 @@ a {
 }
 
 //breakpoints
-@media only screen and (max-width: 990px) {
-  .navbarContainer {
-    flex-direction: column;
+@media (max-width: $desktopWidth) {
+  .listContainer {
+    grid-template-columns: 1fr 1fr;
   }
-  .navbarButtonContainer,
-  .form-outline {
-    margin-top: 17px;
+  .bidForm {
+    width: 75%;
   }
 }
 
-@media only screen and (max-width: 465px) {
+@media (max-width: $mobileWidth) {
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
   .itemImage img {
     height: 200px;
+  }
+  .bidForm {
+    width: 65%;
+  }
+  #searchInput {
+    width: 230px;
   }
 }

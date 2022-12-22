@@ -16,14 +16,14 @@ function renderListingInfo(item, highestBid) {
              <p>${item.seller.name}</p>
              </div>
             </div>
-           <h1>${item.title}</h1>
+           <h1>${item.title.toUpperCase()}</h1>
           </div>
           <div class="itemImage">
             <img src="${item.media}" alt="${
     item.title
   }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
           </div>
-          <div class="itemDescription mt-3 d-flex"> 
+          <div class="itemDescriptionBody mt-3 d-flex"> 
             <p class="itemDescription">${item.description}</p>
           </div>
           <div class="itemBid d-flex flex-column mt-3 align-items-start">
@@ -85,7 +85,7 @@ export async function renderRegisteredList() {
                              <div >
                              </div class="d-flex mt-3 justify-content-center">
                                 ${renderListingInfo(item, highestBid)}
-                             <div class="d-flex flex-grow-1 justify-content-start mt-4" >
+                             <div class="d-flex flex-column flex-grow-1 justify-content-start mt-4" >
                               <form class="bidForm d-flex mt-4">
                                <input 
                                 name="listingId"
@@ -102,7 +102,7 @@ export async function renderRegisteredList() {
                                 window.location.reload();
                               }, 1000);">Bid</button>
                                </form>
-                                <div class="dropdown dropstart mt-4 d-flex justify-content-end flex-grow-1">
+                                <div class="dropdown dropend mt-4 d-flex justify-content-start flex-grow-1">
                                 <button type="button" class="btn btn-primary dropdown-toggle"         data-bs-toggle="dropdown">
                                   Bids Info  </button>
                                   <ul class="dropdown-menu p-3">

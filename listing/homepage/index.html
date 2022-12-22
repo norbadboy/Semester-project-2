@@ -54,7 +54,6 @@
                     value=""
                     required
                     minlength="3"
-                    style="width: 360px"
                   />
                   <button type="button" class="btn btn-primary">
                     <i class="fas fa-search"></i>
@@ -78,9 +77,10 @@
         </div>
       </nav>
     </header>
-    <main class="flex-grow-1 container-fluid mt-4">
-      <section class="newListing d-none justify-content-center">
-        <div class="card d-flex flex-column mt-5 p-3">
+    <h4 class="fetchingContainer m-5 d-flex">Fetching listings...</h4>
+    <main class="mainContainer d-none flex-column">
+      <section class="newListing d-flex justify-content-center">
+        <div class="card newListingContainer d-flex flex-column mt-5 p-3">
           <h2 class="text-center">New Listing</h2>
           <form action="/listing/homepage/" class="p-3 rounded" id="createListingForm">
             <div class="d-flex flex-column">
@@ -109,32 +109,42 @@
                 class="rounded px-2 py-1 mb-2"
               />
             </div>
-            <div>
+            <div class="mb-2">
               <label for="">Deadline Date:</label>
               <input
-                class="form-control bg-info text-light"
+                class="form-control"
                 type="datetime-local"
                 id="createListingDeadline"
                 name="endsAt"
                 required
               />
             </div>
-            <div class="mt-1">
-              <button class="rounded" type="button" id="createListingButton">Create</button>
+            <div class="mt-2">
+              <button class="btn btn-primary rounded p-2" type="button" id="createListingButton">
+                Create
+              </button>
             </div>
           </form>
         </div>
       </section>
-      <section class="mt-4 d-flex justify-content-center flex-column">
+      <div class="d-flex separateLine">
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+        <hr class="lineStyle" />
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+      </div>
+      <section class="d-flex justify-content-center flex-column">
         <div class="listBody">
-          <div class="listContainer" id="registeredListings">
-            <h4 class="mt-2">Fetching listings...</h4>
-          </div>
+          <div class="listContainer" id="registeredListings"></div>
         </div>
       </section>
+      <div class="d-flex separateLine">
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+        <hr class="lineStyle" />
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+      </div>
     </main>
 
-    <footer class="bottom-0 py-3">
+    <footer class="footerContainer d-none bottom-0 py-3">
       <div class="container-fluid">
         <div class="col">© 2022 Thong Ho</div>
       </div>
@@ -172,8 +182,12 @@
     }
   });
 
-  const newListing = document.querySelector(".newListing");
+  const mainContainer = document.querySelector(".mainContainer");
+  const footerContainer = document.querySelector(".footerContainer");
+  const fetchingContainer = document.querySelector(".fetchingContainer");
   setTimeout(() => {
-    newListing.classList.replace("d-none", "d-flex");
-  }, 0);
+    fetchingContainer.classList.replace("d-flex", "d-none");
+    mainContainer.classList.replace("d-none", "d-flex");
+    footerContainer.classList.replace("d-none", "d-flex");
+  }, 1000);
 </script>

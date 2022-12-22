@@ -5,7 +5,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-.cardBody {
+.cardBody,
+.newListingContainer {
   background-color: #fff6ff;
   border-color: transparent;
 }
@@ -18,6 +19,7 @@ body {
 .btn-primary:hover {
   background-color: rgba(34, 0, 93, 0.8980392157);
   border-color: #fff;
+  color: #fff;
 }
 
 .btn-secondary,
@@ -61,6 +63,10 @@ body {
 .userImage {
   border: 2px solid #2e2828;
   border-radius: 70%;
+}
+
+#searchInput {
+  width: 360px;
 }
 
 h1 {
@@ -109,7 +115,7 @@ a {
   text-overflow: ellipsis;
   height: 80px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 0px 15px;
 }
 
 .numberOfBidsText,
@@ -141,11 +147,15 @@ a {
   font-weight: 500;
 }
 
+.newListingContainer {
+  margin: 0 20px;
+}
+
 .listContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
-  gap: 45px 35px;
-  padding: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 35px;
+  padding: 0 1rem;
 }
 
 .registerMain {
@@ -164,6 +174,19 @@ a {
   margin-left: 5px;
   font-weight: 400;
   font-size: 22px;
+}
+
+.itemDescriptionBody {
+  border: 1px solid;
+  border-color: #6a6a6f;
+  border-radius: 10px;
+}
+
+.lineStyle {
+  border: 1.2px solid rgba(34, 0, 93, 0.8980392157);
+  background-color: rgba(34, 0, 93, 0.8980392157);
+  width: 100%;
+  margin: 50px;
 }
 
 .itemImage img {
@@ -204,17 +227,25 @@ a {
   padding-top: 4px;
 }
 
-@media only screen and (max-width: 990px) {
-  .navbarContainer {
-    flex-direction: column;
+@media (max-width: 1400px) {
+  .listContainer {
+    grid-template-columns: 1fr 1fr;
   }
-  .navbarButtonContainer,
-.form-outline {
-    margin-top: 17px;
+  .bidForm {
+    width: 75%;
   }
 }
-@media only screen and (max-width: 465px) {
+@media (max-width: 900px) {
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
   .itemImage img {
     height: 200px;
+  }
+  .bidForm {
+    width: 65%;
+  }
+  #searchInput {
+    width: 230px;
   }
 }/*# sourceMappingURL=styles.css.map */
