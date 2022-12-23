@@ -88,6 +88,10 @@ h2 {
   color: #2e2828;
 }
 
+h4 {
+  font-size: 22px;
+}
+
 p {
   font-size: 18px;
   font-weight: 400;
@@ -125,9 +129,9 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 80px;
+  height: 85px;
   margin-top: 10px;
-  padding: 0px 15px;
+  align-items: center;
 }
 
 .numberOfBidsText,
@@ -137,7 +141,7 @@ a {
 }
 
 .numberOfBidsText {
-  color: #6a6a6f;
+  color: #5b5b5f;
   font-weight: 400;
 }
 
@@ -169,7 +173,7 @@ a {
 
 .frontPageImage {
   width: 100%;
-  height: 300px;
+  height: 240px;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -210,6 +214,19 @@ a {
   border-color: transparent;
 }
 
+#loginButton {
+  margin-right: 10px;
+}
+
+.socialIcon .fa:hover,
+.socialIcon p:hover {
+  color: #5d55af;
+}
+
+.cardBody {
+  margin: 20px 0;
+}
+
 .newListingContainer {
   margin: 0 20px;
 }
@@ -232,6 +249,10 @@ a {
   padding: 40px;
 }
 
+.registerBody {
+  width: 800px;
+}
+
 #orBody {
   margin-right: 15px;
   margin-left: 5px;
@@ -241,7 +262,7 @@ a {
 
 .itemDescriptionBody {
   border: 1px solid;
-  border-color: #6a6a6f;
+  border-color: #5b5b5f;
   border-radius: 10px;
 }
 
@@ -250,6 +271,10 @@ a {
   background-color: rgba(34, 0, 93, 0.8980392157);
   width: 100%;
   margin: 50px;
+}
+
+.registerPassword {
+  margin-right: 35px;
 }
 
 .newsLetterContainer {
@@ -273,7 +298,10 @@ a {
     width: 75%;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 975px) {
+  .registerMain {
+    margin-top: 60px;
+  }
   .listContainer {
     grid-template-columns: 1fr;
   }
@@ -288,5 +316,22 @@ a {
   }
   .socialFollow {
     flex-direction: column;
+  }
+  .navbarContainer {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .navbarButtonContainer {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .registerRow {
+    flex-direction: column;
+  }
+  .registerBody {
+    justify-content: center;
+    align-items: center;
+    width: 500px;
   }
 }/*# sourceMappingURL=styles.css.map */

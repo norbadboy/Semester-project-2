@@ -3,11 +3,12 @@ $backGround2Color: #fffbff;
 $btnPrimaryColor: #22005de5;
 $btnSecondaryColor: #5d55af;
 $fontColor: #2e2828;
-$fontSecondaryColor: #6a6a6f;
+$fontSecondaryColor: #5b5b5f;
 $primaryColor: #f1e7fd;
 $fontFamily: "Poppins", sans-serif;
 $desktopWidth: 1400px;
-$mobileWidth: 900px;
+$mobileWidth: 975px;
+$smallMobileWidth: 700px;
 $marginBody: 0 20px;
 
 * {
@@ -90,6 +91,9 @@ h2 {
   line-height: 30px;
   color: $fontColor;
 }
+h4 {
+  font-size: 22px;
+}
 p {
   font-size: 18px;
   font-weight: 400;
@@ -122,9 +126,9 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 80px;
+  height: 85px;
   margin-top: 10px;
-  padding: 0px 15px;
+  align-items: center;
 }
 .numberOfBidsText,
 .highestBidText {
@@ -159,7 +163,7 @@ a {
 }
 .frontPageImage {
   width: 100%;
-  height: 300px;
+  height: 240px;
   object-fit: contain;
 }
 
@@ -195,8 +199,18 @@ a {
 .newsLetterEmailButton:hover {
   border-color: transparent;
 }
+#loginButton {
+  margin-right: 10px;
+}
+.socialIcon .fa:hover,
+.socialIcon p:hover {
+  color: $btnSecondaryColor;
+}
 
 //body
+.cardBody {
+  margin: 20px 0;
+}
 .newListingContainer {
   margin: $marginBody;
 }
@@ -215,6 +229,9 @@ a {
   background-color: $backGroundColor;
   padding: 40px;
 }
+.registerBody {
+  width: 800px;
+}
 #orBody {
   margin-right: 15px;
   margin-left: 5px;
@@ -231,6 +248,9 @@ a {
   background-color: $btnPrimaryColor;
   width: 100%;
   margin: 50px;
+}
+.registerPassword {
+  margin-right: 35px;
 }
 
 //footer
@@ -255,6 +275,9 @@ a {
 }
 
 @media (max-width: $mobileWidth) {
+  .registerMain {
+    margin-top: 60px;
+  }
   .listContainer {
     grid-template-columns: 1fr;
   }
@@ -269,5 +292,22 @@ a {
   }
   .socialFollow {
     flex-direction: column;
+  }
+  .navbarContainer {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .navbarButtonContainer {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: $smallMobileWidth) {
+  .registerRow {
+    flex-direction: column;
+  }
+  .registerBody {
+    justify-content: center;
+    align-items: center;
+    width: 500px;
   }
 }

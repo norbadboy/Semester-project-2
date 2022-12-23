@@ -18,7 +18,7 @@ export async function renderList(list) {
       item.title
     }" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
                                 </div>
-                                <div class="itemDescription my-3 d-flex">
+                                <div class="itemDescriptionContainer my-3 d-flex">
                                 <p class="itemDescription">${item.description}</p>
                                 </div>
                                 <div class="itemBid my-3 d-flex justify-content-around">

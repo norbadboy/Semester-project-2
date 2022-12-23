@@ -78,67 +78,83 @@
     </header>
     <main class="d-flex flex-grow-1 mt-lg-5">
       <div class="registerMain d-flex justify-content-center flex-grow-1" id="newUser">
-        <div class="registerContainer d-flex flex-column justify-content-center">
+        <div class="registerContainer mx-4 d-flex flex-column justify-content-center">
           <div class="registerBody card d-flex">
-            <h1 class="registerTitle d-flex justify-content-center mt-2 mb-3 text-uppercase">
+            <h1 class="registerTitle d-flex justify-content-center mb-3 text-uppercase">
               register
             </h1>
             <form id="registerForm">
-              <div class="form-group mb-4">
-                <h4 for="" class="mb-1">Name</h4>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="name"
-                  required
-                  pattern="^[a-zA-Z0-9_]+$"
-                  placeholder="Enter your name"
-                  title=" must not contain punctuation symbols apart from underscore (_)"
-                />
-              </div>
-              <div class="form-group mb-4">
-                <div class="d-flex">
-                  <h4 for="" class="mb-1">Email</h4>
-                  <p class="mt-1 mx-2 text-small">(only @stud.noroff.no)</p>
+              <div class="registerRow d-flex flex-grow-1">
+                <div class="registerName d-flex flex-grow-1 form-group mb-4">
+                  <div>
+                    <h4 for="" class="mb-1">Name</h4>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="name"
+                      required
+                      pattern="^[a-zA-Z0-9_]+$"
+                      placeholder="Enter your name"
+                      title=" must not contain punctuation symbols apart from underscore (_)"
+                      style="width: 300px"
+                    />
+                  </div>
                 </div>
-                <input
-                  class="form-control"
-                  type="email"
-                  name="email"
-                  required
-                  pattern="^[\w\-.]+@stud.?noroff.no$"
-                  placeholder="Enter your email"
-                  title="Only @stud.noroff.no domains are allow to register."
-                />
-              </div>
-              <div class="form-group mb-4">
-                <div class="d-flex">
-                  <h4>Password</h4>
-                  <p class="mt-1 mx-2 text-small">(minimum 8 characters)</p>
+                <div class="registerEmail d-flex flex-grow-1 form-group mb-4">
+                  <div>
+                    <div class="d-flex">
+                      <h4 for="" class="mb-1">Email</h4>
+                      <p class="mx-2 text-small">(only @stud.noroff.no)</p>
+                    </div>
+                    <input
+                      class="form-control"
+                      type="email"
+                      name="email"
+                      required
+                      pattern="^[\w\-.]+@stud.?noroff.no$"
+                      placeholder="Enter your email"
+                      title="Only @stud.noroff.no domains are allow to register."
+                      style="width: 300px"
+                    />
+                  </div>
                 </div>
-                <input
-                  class="form-control"
-                  type="password"
-                  name="password"
-                  required
-                  minlength="8"
-                  placeholder="Enter your password"
-                  title="Must be at least 8 characters"
-                />
               </div>
-              <div class="form-group mb-4">
-                <div class="d-flex">
-                  <h4>Avatar</h4>
+              <div class="registerRow d-flex">
+                <div class="registerPassword d-flex flex-grow-0 form-group mb-4">
+                  <div>
+                    <div class="d-flex">
+                      <h4>Password</h4>
+                      <p class="mx-2 text-small">(min 8 characters)</p>
+                    </div>
+                    <input
+                      class="form-control"
+                      type="password"
+                      name="password"
+                      required
+                      minlength="8"
+                      placeholder="Enter your password"
+                      title="Must be at least 8 characters"
+                      style="width: 300px"
+                    />
+                  </div>
                 </div>
-                <input
-                  required
-                  type="url"
-                  class="form-control"
-                  id="registerAvatar"
-                  name="avatar"
-                  placeholder="Enter your avatar url"
-                  required
-                />
+                <div class="registerAvatar d-flex flex-grow-1 form-group mb-4">
+                  <div>
+                    <div class="d-flex">
+                      <h4>Avatar</h4>
+                    </div>
+                    <input
+                      required
+                      type="url"
+                      class="form-control"
+                      id="registerAvatar"
+                      name="avatar"
+                      placeholder="Enter your avatar url"
+                      required
+                      style="width: 300px"
+                    />
+                  </div>
+                </div>
               </div>
               <div class="d-flex mt-4">
                 <input
