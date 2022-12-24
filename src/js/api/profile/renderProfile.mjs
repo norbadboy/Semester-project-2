@@ -77,9 +77,14 @@ export async function userListing(name) {
                                   <p class="bidText">Amount of bids: </p>
                                   <p class="bidItemText">${listing._count.bids}</p>
                                 </div>
+                                <div class="d-flex mt-1 justify-content-center mt-4">
+                                  <p class="bidText">Created: </p>
+                                  <p class="bidItemText">${new Date(
+                                    listing.created
+                                  ).toLocaleString()}</p>
+                                </div>
                                 <div class="d-flex mt-2 justify-content-center">
-                                  <i class="fas fa-clock"></i>
-                                  <p class="bidText">Ends at: </p>
+                                  <p class="bidText">Ends: </p>
                                   <p class="bidItemText">${new Date(
                                     listing.endsAt
                                   ).toLocaleString()}</p>
