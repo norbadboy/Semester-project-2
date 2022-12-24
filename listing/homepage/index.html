@@ -84,8 +84,23 @@
     </header>
     <h4 class="fetchingContainer m-5 d-flex">Loading page...</h4>
     <main class="mainContainer d-none flex-column">
+      <section class="d-flex justify-content-center flex-column mt-5">
+        <div class="seeAllButton d-flex flex-grow-1 justify-content-end">
+          <a href="/listing/all/" class="mb-2 mx-3" type="button" id="seeAllButton">
+            <h4>See All</h4>
+          </a>
+        </div>
+        <div class="listBody">
+          <div class="listContainer" id="registeredListings"></div>
+        </div>
+      </section>
+      <div class="d-flex separateLine mt-4">
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+        <hr class="lineStyle" />
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+      </div>
       <section class="newListing d-flex justify-content-center">
-        <div class="card newListingContainer d-flex flex-column mt-5 p-3">
+        <div class="card newListingContainer d-flex flex-column p-3">
           <h2 class="text-center">New Listing</h2>
           <form action="/listing/homepage/" class="p-3 rounded" id="createListingForm">
             <div class="d-flex flex-column">
@@ -132,28 +147,14 @@
           </form>
         </div>
       </section>
-      <div class="d-flex separateLine">
-        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
-        <hr class="lineStyle" />
-        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
-      </div>
-      <section class="d-flex justify-content-center flex-column">
-        <div class="seeAllButton d-flex flex-grow-1 justify-content-end">
-          <a href="/listing/all/" class="mb-2 mx-3" type="button" id="seeAllButton">
-            <h4>See All</h4>
-          </a>
-        </div>
-        <div class="listBody">
-          <div class="listContainer" id="registeredListings"></div>
-        </div>
-      </section>
+
       <div class="d-flex separateLine">
         <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
         <hr class="lineStyle" />
         <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
       </div>
     </main>
-    <section class="newsLetterContainer d-none rounded">
+    <section class="newsLetterContainer d-none rounded mb-3">
       <div class="newsLetterBody d-flex py-1 px-2">
         <div class="d-flex">
           <div class="rowContentImage d-flex flex-column flex-grow-1"></div>
@@ -276,6 +277,7 @@
     if (listData.title && listData.endsAt && listData.description && listData.media) {
       await createList(listData);
       await renderRegisteredList();
+      window.location.reload();
     } else {
       alert("Please fill in the required fields");
     }
