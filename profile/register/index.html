@@ -27,7 +27,7 @@
     <script src="https://kit.fontawesome.com/87903c1d5c.js" crossorigin="anonymous"></script>
     <title>EasyBid - Register</title>
   </head>
-  <body class="min-vh-100 d-flex flex-column overflow-hidden">
+  <body class="min-vh-100 d-flex flex-column">
     <header class="py-3 sticky-top">
       <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container-fluid d-flex">
@@ -78,13 +78,13 @@
     </header>
     <main class="d-flex flex-grow-1 mt-lg-5">
       <div class="registerMain d-flex justify-content-center flex-grow-1" id="newUser">
-        <div class="registerContainer mx-4 d-flex flex-column justify-content-center">
-          <div class="registerBody card d-flex">
+        <div class="registerContainer mx-4 d-flex flex-grow-1 flex-column align-items-center">
+          <div class="registerBody card d-flex flex-grow-1">
             <h1 class="registerTitle d-flex justify-content-center mb-3 text-uppercase">
               register
             </h1>
-            <form id="registerForm">
-              <div class="registerRow d-flex flex-grow-1">
+            <form id="registerForm d-flex flex-grow-1 mt-3">
+              <div class="registerRow d-flex flex-grow-1 mt-4">
                 <div class="registerName d-flex flex-grow-1 form-group mb-4">
                   <div>
                     <h4 for="" class="mb-1">Name</h4>
@@ -96,7 +96,7 @@
                       pattern="^[a-zA-Z0-9_]+$"
                       placeholder="Enter your name"
                       title=" must not contain punctuation symbols apart from underscore (_)"
-                      style="width: 300px"
+                      style="width: 370px"
                     />
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                       pattern="^[\w\-.]+@stud.?noroff.no$"
                       placeholder="Enter your email"
                       title="Only @stud.noroff.no domains are allow to register."
-                      style="width: 300px"
+                      style="width: 370px"
                     />
                   </div>
                 </div>
@@ -134,7 +134,7 @@
                       minlength="8"
                       placeholder="Enter your password"
                       title="Must be at least 8 characters"
-                      style="width: 300px"
+                      style="width: 370px"
                     />
                   </div>
                 </div>
@@ -151,7 +151,7 @@
                       name="avatar"
                       placeholder="Enter your avatar url"
                       required
-                      style="width: 300px"
+                      style="width: 370px"
                     />
                   </div>
                 </div>
@@ -178,7 +178,7 @@
       </div>
     </main>
 
-    <footer class="position-sticky bottom-0 py-3 d-flex flex-grow-1">
+    <footer class="bottom-0 mt-3 py-3 d-flex flex-grow-1">
       <div class="container-fluid">
         <div class="col">© 2022 Thong Ho</div>
       </div>
