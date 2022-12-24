@@ -24,26 +24,25 @@ function renderListingInfo(item, highestBid) {
   }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
           </div>
           <div class="itemInfoContainer">
-          <div class="itemDescriptionBody mt-3 d-flex"> 
-            <p class="itemDescription">${item.description}</p>
-          </div>
-          <div class="itemBid d-flex flex-column mt-2 align-items-start">
-            <div class="d-flex mt-1 justify-content-center">
-            <p class="bidText">Amount of bids: </p>
-            <p class="bidItemText">${item._count.bids}</p>
+            <div class="itemDescriptionBody mt-3 d-flex"> 
+              <p class="itemDescription">${item.description}</p>
             </div>
-            <div class="d-flex mt-1 justify-content-center">
-            <i class="fas fa-dollar-sign d-flex"></i>
-            <p class="bidText">Highest bid: </p>
-            <p class="bidItemText">${highestBid}</p>
+            <div class="itemBid d-flex flex-column mt-2 align-items-start">
+              <div class="d-flex mt-1 justify-content-center">
+                <p class="bidText">Amount of bids: </p>
+                <p class="bidItemText">${item._count.bids}</p>
+              </div>
+              <div class="d-flex mt-1 justify-content-center">
+                <i class="fas fa-dollar-sign d-flex"></i>
+                <p class="bidText">Highest bid: </p>
+                <p class="bidItemText">${highestBid}</p>
+              </div>
+              <div class="d-flex mt-1 justify-content-center">
+                <i class="fas fa-clock"></i>
+                <p class="bidText">Ends at: </p>
+                <p class="bidItemText">${new Date(item.endsAt).toLocaleString()}</p>
+              </div>
             </div>
-            <div class="d-flex mt-1 justify-content-center">
-            <i class="fas fa-clock"></i>
-            <p class="bidText">Ends at: </p>
-            <p class="bidItemText">${new Date(item.endsAt).toLocaleString()}</p>
-            </div>
-          </div>
-          
           </div>
         `;
 }

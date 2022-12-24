@@ -12,10 +12,7 @@ if (path === "/profile/register/") {
   loginListener();
 } else if (path === "/listing/homepage/") {
   createListListener();
-} else if (
-  path === "/profile/avatar/" ||
-  path === "/listing/homepage/" ||
-  path === "/profile/edit/"
-) {
+  logoutListener();
+} else if (path === "/listing/all/" || path === "/profile/avatar/" || path === "/profile/edit/") {
   logoutListener();
 }
