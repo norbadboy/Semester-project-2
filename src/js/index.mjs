@@ -11,6 +11,11 @@ if (path === "/profile/register/") {
 } else if (path === "/profile/login/") {
   loginListener();
 } else if (path === "/listing/homepage/") {
-  logoutListener();
   createListListener();
+} else if (
+  path === "/profile/avatar/" ||
+  path === "/listing/homepage/" ||
+  path === "/profile/edit/"
+) {
+  logoutListener();
 }

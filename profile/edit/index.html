@@ -29,7 +29,7 @@
   </head>
   <body class="min-vh-100 d-flex flex-column">
     <header class="py-3 sticky-top">
-      <nav class="navbar fixed-top navbar-expand-lg">
+      <nav class="navbar fixed-top navbar-toggler">
         <div class="container-fluid">
           <a class="navbar-brand" href="/listing/homepage/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
@@ -38,37 +38,43 @@
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <div class="input-group">
-              <div class="form-outline"></div>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-primary" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="input-group mt-3 d-flex flex-grow-1 justify-content-end">
+              <div class="form-outline">
+                <form id="searchForm" class="d-flex">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    name="term"
+                    value=""
+                    required
+                    minlength="3"
+                  />
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
             </div>
             <ul
-              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-              style="--bs-scroll-height: 150px"
+              class="navbarBody navbar-nav me-auto my-3 my-lg-0 d-flex flex-grow-1 align-items-end"
             >
-              <li class="" id="userCredit"><a class="nav-link" href="#"></a> f</li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile/edit/">Profile</a>
+              <li class="nav-item mt-3 d-flex">
+                <div id="userAvatar"></div>
+                <div id="userName" class="d-flex align-items-center"></div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mt-3" id="userCredit"></li>
+              <li class="nav-item mt-3 mb-2">
                 <a href="#" class="btn btn-secondary" type="button" id="logoutButton">Logout</a>
               </li>
             </ul>
@@ -78,7 +84,11 @@
     </header>
     <main class="flex-grow-1 container-fluid mt-4">
       <section>
-        <div id="profileContainer"></div>
+        <div id="profileContainer" class="mx-3"></div>
+      </section>
+      <section class="d-flex flex-column mt-5">
+        <h2 class="mx-3">User's Listings</h2>
+        <div id="userListingContainer"></div>
       </section>
     </main>
 
@@ -91,7 +101,8 @@
 </html>
 
 <script type="module">
-  import { renderProfile } from "/src/js/api/profile/renderProfile.mjs";
+  import { renderProfile, userListing } from "/src/js/api/profile/renderProfile.mjs";
+  import { renderUserCredit, renderUserAvatar } from "/src/js/api/listing/registeredList.mjs";
 
-  await renderProfile();
+  await renderProfile(), renderUserCredit(), renderUserAvatar(), userListing();
 </script>

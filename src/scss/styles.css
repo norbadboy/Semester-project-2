@@ -14,6 +14,7 @@
 
 body {
   background-color: #f1e7fd;
+  padding: 0 35px;
 }
 
 .newsLetterContainer {
@@ -53,6 +54,7 @@ body {
 
 #navUserName {
   color: #2e2828;
+  font-size: 25px;
 }
 
 #loginButton {
@@ -74,26 +76,44 @@ body {
   width: 360px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: #2e2828;
+  line-height: 30px;
+}
+
 h1 {
-  font-size: 34px;
+  font-size: 33px;
   font-weight: 500;
   line-height: 44px;
-  color: #2e2828;
+  letter-spacing: 2px;
 }
 
 h2 {
-  font-size: 27px;
+  font-size: 26px;
   font-weight: 500;
-  line-height: 30px;
-  color: #2e2828;
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: 500;
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 21px;
+}
+
+h5 {
+  font-size: 19px;
+  font-weight: 400;
 }
 
 p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -132,6 +152,7 @@ a {
   height: 85px;
   margin-top: 10px;
   align-items: center;
+  padding: 0 20px;
 }
 
 .numberOfBidsText,
@@ -165,7 +186,7 @@ a {
 
 .itemImage img {
   width: 100%;
-  height: 330px;
+  height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
@@ -231,7 +252,8 @@ a {
   margin: 0 20px;
 }
 
-.listContainer {
+.listContainer,
+#userListingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px 35px;
@@ -251,6 +273,11 @@ a {
 
 .registerBody {
   width: 800px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 #orBody {
@@ -290,8 +317,13 @@ a {
   text-decoration: none;
 }
 
+.allListingFooter {
+  list-style: url("/assets/icons/folder-open-regular.svg");
+}
+
 @media (max-width: 1400px) {
-  .listContainer {
+  .listContainer,
+#userListingContainer {
     grid-template-columns: 1fr 1fr;
   }
   .bidForm {
@@ -302,7 +334,8 @@ a {
   .registerMain {
     margin-top: 60px;
   }
-  .listContainer {
+  .listContainer,
+#userListingContainer {
     grid-template-columns: 1fr;
   }
   .itemImage img {
@@ -324,6 +357,9 @@ a {
   .navbarButtonContainer {
     margin-top: 20px;
   }
+  .itemImage img {
+    height: 350px;
+  }
 }
 @media screen and (max-width: 700px) {
   .registerRow {
@@ -333,5 +369,11 @@ a {
     justify-content: center;
     align-items: center;
     width: 500px;
+  }
+  .profileBody {
+    flex-direction: column;
+  }
+  .profileColumn-2 {
+    margin-top: 40px;
   }
 }/*# sourceMappingURL=styles.css.map */

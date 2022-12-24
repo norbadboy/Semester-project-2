@@ -138,6 +138,11 @@
         <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
       </div>
       <section class="d-flex justify-content-center flex-column">
+        <div class="seeAllButton d-flex flex-grow-1 justify-content-end">
+          <a href="#" class="mb-2 mx-3" type="button" id="seeAllButton">
+            <h4>See All</h4>
+          </a>
+        </div>
         <div class="listBody">
           <div class="listContainer" id="registeredListings"></div>
         </div>
@@ -190,22 +195,25 @@
         </div>
       </div>
     </section>
-    <footer class="footerContainer d-none card bottom-0 p-3 m-3">
+    <footer class="footerContainer d-none card bottom-0 p-4 m-3">
       <section class="footer--content d-flex flex-grow-1">
         <div class="footer--container d-flex flex-grow-1 justify-content-between">
-          <div class="row-1 d-flex flex-grow-1 justify-content-center">
+          <div class="row-1 d-flex flex-grow-1 justify-content-start">
             <div class="copyright">
               <p>&copy; 2022</p>
               <p>Thong Ho</p>
             </div>
           </div>
           <div class="row-2 d-flex flex-grow-1 justify-content-center">
-            <div class="footerItems">
-              <ul class="footerNav">
-                <li>
+            <div class="footerItems d-flex flex-grow-1">
+              <ul class="footerNav d-flex flex-grow-1">
+                <li class="d-flex flex-grow-1">
                   <a href="/profile/avatar/">profile</a>
                 </li>
-                <li>
+                <li class="d-flex flex-grow-1">
+                  <a href="#">credits</a>
+                </li>
+                <li class="allListingFooter d-flex flex-grow-1">
                   <a href="#">all listings</a>
                 </li>
               </ul>
@@ -248,12 +256,15 @@
 </html>
 
 <script type="module">
-  import { renderRegisteredList, renderUserCredit } from "/src/js/api/listing/registeredList.mjs";
+  import {
+    renderRegisteredList,
+    renderUserCredit,
+    renderUserAvatar,
+  } from "/src/js/api/listing/registeredList.mjs";
   import { createList } from "/src/js/api/listing/createList.mjs";
 
   // render all listings first time page loads
-  await renderRegisteredList();
-  await renderUserCredit();
+  await renderRegisteredList(), renderUserCredit(), renderUserAvatar();
 
   const createListingButton = document.getElementById("createListingButton");
   const createListingTitle = document.getElementById("createListingTitle");

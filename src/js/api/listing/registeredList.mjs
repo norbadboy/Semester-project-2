@@ -6,13 +6,13 @@ import { bidListener } from "/src/js/listeners/listing/bid.mjs";
 function renderListingInfo(item, highestBid) {
   return `
           <div class="itemInfo">
-           <div class="d-flex">
+           <div class="d-flex mb-2">
              <div class="sellerImage">
               <img src="${item.seller.avatar}" alt="${
     item.seller.name
-  }" class="img-thumbnail" style="width: 60px; height: 60px" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
+  }" class="img-thumbnail" style="width: 45px; height: 45px" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
              </div>
-              <div class="sellerName">
+              <div class="sellerName d-flex flex-column justify-content-center mx-2">
              <p>${item.seller.name}</p>
              </div>
             </div>
@@ -26,7 +26,7 @@ function renderListingInfo(item, highestBid) {
           <div class="itemDescriptionBody mt-3 d-flex"> 
             <p class="itemDescription">${item.description}</p>
           </div>
-          <div class="itemBid d-flex flex-column mt-3 align-items-start">
+          <div class="itemBid d-flex flex-column mt-2 align-items-start">
             <div class="d-flex mt-1 justify-content-center">
             <p class="bidText">Amount of bids: </p>
             <p class="bidItemText">${item._count.bids}</p>
@@ -60,17 +60,6 @@ function renderBidLog(bids) {
 export async function renderRegisteredList() {
   const list = await getList();
 
-  const userName = document.getElementById("userName");
-  const userAvatar = document.getElementById("userAvatar");
-
-  const user = await load("user");
-  userName.innerHTML = `<a class="nav-link" id="navUserName" href="/profile/edit/">${user.name}</a>`;
-  userAvatar.innerHTML = `
-                          <a class="nav-link" href="/profile/edit/">                        
-                             <img src="${user.avatar}" alt="${user.name}" class="userImage" style="width: 100px; height: 100px">
-                          </a>
-  `;
-
   const listContainer = document.querySelector(".listContainer");
   listContainer.innerHTML = "";
   list.forEach((item) => {
@@ -85,8 +74,8 @@ export async function renderRegisteredList() {
                              <div >
                              </div class="d-flex mt-3 justify-content-center">
                                 ${renderListingInfo(item, highestBid)}
-                             <div class="d-flex flex-column flex-grow-1 justify-content-start mt-4" >
-                              <form class="bidForm d-flex mt-4">
+                             <div class="d-flex flex-column flex-grow-1 justify-content-start mt-2" >
+                              <form class="bidForm d-flex mt-3">
                                <input 
                                 name="listingId"
                                 value="${item.id}"
@@ -102,7 +91,7 @@ export async function renderRegisteredList() {
                                 window.location.reload();
                               }, 1000);">Bid</button>
                                </form>
-                                <div class="dropdown dropend mt-4 d-flex justify-content-start flex-grow-1">
+                                <div class="dropdown dropend mt-3 d-flex justify-content-start flex-grow-1">
                                 <button type="button" class="btn btn-primary dropdown-toggle"         data-bs-toggle="dropdown">
                                   Bids Info  </button>
                                   <ul class="dropdown-menu p-3">
@@ -137,4 +126,17 @@ export async function renderUserCredit() {
 </div>
   `;
   creditContainer.appendChild(userCredit);
+}
+
+export async function renderUserAvatar() {
+  const userName = document.getElementById("userName");
+  const userAvatar = document.getElementById("userAvatar");
+
+  const user = await load("user");
+  userName.innerHTML = `<a class="nav-link" id="navUserName" href="/profile/edit/">${user.name}</a>`;
+  userAvatar.innerHTML = `
+                          <a class="nav-link" href="/profile/edit/">                        
+                             <img src="${user.avatar}" alt="${user.name}" class="userImage" style="width: 70px; height: 70px">
+                          </a>
+  `;
 }
