@@ -145,7 +145,6 @@ a {
   text-overflow: ellipsis;
   height: 85px;
   margin-top: 10px;
-  align-items: center;
   padding: 0 20px;
 }
 .numberOfBidsText,
@@ -174,7 +173,7 @@ a {
 
 //image
 .itemImage img {
-  width: 100%;
+  width: 400px;
   height: 280px;
   object-fit: cover;
   border-radius: 10px;
@@ -183,6 +182,14 @@ a {
   width: 100%;
   height: 240px;
   object-fit: contain;
+}
+.rowContentImage {
+  background-image: url("/assets/images/newsletter-img.png");
+  background-size: cover;
+  width: 360px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 50px;
 }
 
 //icons and buttons
@@ -220,7 +227,7 @@ a {
 #loginButton {
   margin-right: 10px;
 }
-.socialIcon .fa:hover,
+.socialIcon .fa,
 .socialIcon p:hover {
   color: $btnSecondaryColor;
 }
@@ -236,8 +243,7 @@ a {
 #userListingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 35px;
-  padding: 0 1rem;
+  grid-gap: 0 40px;
 }
 .registerMain {
   width: auto;
@@ -265,6 +271,9 @@ a {
   border: 1px solid;
   border-color: $fontSecondaryColor;
   border-radius: 10px;
+  width: 335px;
+  display: flex;
+  justify-content: start;
 }
 .lineStyle {
   border: 1.2px solid $btnPrimaryColor;
@@ -287,8 +296,22 @@ a {
 .socialFollow a {
   text-decoration: none;
 }
-.allListingFooter {
-  list-style: url("/assets/icons/folder-open-regular.svg");
+.allListingFooter a,
+.profileFooter a,
+.homeFooter a {
+  display: list-item;
+}
+.allListingFooter a {
+  list-style: url("/assets/icons/folder-open.png");
+}
+.profileFooter a {
+  list-style: url("/assets/icons/profile-user.png");
+}
+.homeFooter a {
+  list-style: url("/assets/icons/home.png");
+}
+.emailText {
+  width: 350px;
 }
 
 //breakpoints
@@ -300,9 +323,25 @@ a {
   .bidForm {
     width: 75%;
   }
+  .itemImage img {
+    width: 600px;
+    object-fit: contain;
+  }
+  .itemDescriptionBody {
+    width: 370px;
+  }
+  .footerNav {
+    flex-direction: column;
+  }
+  .footerNav li {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: $mobileWidth) {
+  .cardBody {
+    padding: 50px;
+  }
   .registerMain {
     margin-top: 60px;
   }
@@ -311,7 +350,11 @@ a {
     grid-template-columns: 1fr;
   }
   .itemImage img {
-    height: 200px;
+    width: 100%;
+    height: 350px;
+  }
+  .itemDescriptionBody {
+    width: 570px;
   }
   .bidForm {
     width: 65%;
@@ -329,8 +372,11 @@ a {
   .navbarButtonContainer {
     margin-top: 20px;
   }
-  .itemImage img {
-    height: 350px;
+  .emailText {
+    width: auto;
+  }
+  .rowContentImage {
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: $smallMobileWidth) {
@@ -347,5 +393,12 @@ a {
   }
   .profileColumn-2 {
     margin-top: 40px;
+  }
+  .itemImage img {
+    width: 350px;
+    height: 250px;
+  }
+  .itemDescriptionBody {
+    width: 270px;
   }
 }

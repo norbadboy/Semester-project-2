@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An auction webpage" />
+    <meta name="author" content="Thong Trong Ho" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/src/scss/styles.css" />
+    <script src="/src/js/index.mjs" defer type="module"></script>
+    <script src="https://kit.fontawesome.com/87903c1d5c.js" crossorigin="anonymous"></script>
+    <title>EasyBid - Listing</title>
+  </head>
+  <body class="min-vh-100 d-flex flex-column">
+    <header class="py-3 sticky-top">
+      <nav class="navbar fixed-top navbar-toggler">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/listing/homepage/">
+            <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="input-group mt-3 d-flex flex-grow-1 justify-content-end">
+              <div class="form-outline">
+                <form id="searchForm" class="d-flex">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    name="term"
+                    value=""
+                    required
+                    minlength="3"
+                  />
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <ul
+              class="navbarBody navbar-nav me-auto my-3 my-lg-0 d-flex flex-grow-1 align-items-end"
+            >
+              <li class="nav-item mt-3 d-flex">
+                <div id="userAvatar"></div>
+                <div id="userName" class="d-flex align-items-center"></div>
+              </li>
+              <li class="nav-item mt-3" id="userCredit"></li>
+              <li class="nav-item mt-3 mb-2">
+                <a href="#" class="btn btn-secondary" type="button" id="logoutButton">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h4 class="fetchingContainer m-5 d-flex">Loading page...</h4>
+    <main class="mainContainer d-none flex-column">
+      <h1 class="mt-5 mx-2">All Listings</h1>
+      <section class="d-flex justify-content-center flex-column mx-2 mt-3">
+        <div class="listBody">
+          <div class="listContainer" id="registeredListings"></div>
+        </div>
+      </section>
+      <div class="d-flex separateLine">
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+        <hr class="lineStyle" />
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+      </div>
+    </main>
+    <section class="newsLetterContainer d-none rounded">
+      <div class="newsLetterBody d-flex py-1 px-2">
+        <div class="d-flex">
+          <div class="rowContentImage d-flex flex-column flex-grow-1"></div>
+          <div class="rowContentText d-flex flex-column flex-grow-1">
+            <div>
+              <h4 style="color: white">Newsletter</h4>
+            </div>
+            <div class="mt-3">
+              <h2 style="color: white">Get updates on the latest items</h2>
+            </div>
+            <div class="rowContent d-flex flex-grow-1 mt-1">
+              <form class="newsLetterEmail">
+                <div class="newsLetterEmailContainer">
+                  <input
+                    class="emailText rounded p-1"
+                    type="text"
+                    placeholder="Your email address"
+                    name="mail"
+                    required
+                  />
+                  <button
+                    class="newsLetterEmailButton btn btn-primary"
+                    type="submit"
+                    value="Subscribe"
+                  >
+                    Subscribe <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footerContainer d-none card bottom-0 p-4 m-3">
+      <section class="footer--content d-flex flex-grow-1">
+        <div class="footer--container d-flex flex-grow-1 justify-content-between">
+          <div class="row-1 d-flex flex-grow-1 justify-content-start">
+            <div class="copyright">
+              <p>&copy; 2022</p>
+              <p>Thong Ho</p>
+            </div>
+          </div>
+          <div class="row-2 d-flex flex-grow-1 justify-content-center">
+            <div class="footerItems d-flex flex-grow-1">
+              <ul class="footerNav d-flex flex-grow-1">
+                <li class="homeFooter d-flex flex-grow-1 mx-1">
+                  <a href="/">Home</a>
+                </li>
+                <li class="profileFooter d-flex flex-grow-1 mx-1">
+                  <a href="/profile/edit/">Profile</a>
+                </li>
+                <li class="allListingFooter d-flex flex-grow-1 mx-1">
+                  <a href="/listing/all/">All listings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row-3 d-flex flex-grow-1 justify-content-center">
+            <div class="footerSocial">
+              <ul class="socialFollow d-flex flex-grow-1">
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://instagram.com" target="_blank" class="d-flex">
+                    <i class="fa fa-instagram d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Instagram</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://twitter.com" target="_blank" class="d-flex">
+                    <i class="fa fa-twitter d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Twitter</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.pinterest.com" target="_blank" class="d-flex">
+                    <i class="fa fa-pinterest d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Pinterest</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.facebook.com" target="_blank" class="d-flex">
+                    <i class="fa fa-facebook d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Facebook</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
+
+<script type="module">
+  import { renderUserCredit, renderUserAvatar } from "/src/js/api/listing/registeredList.mjs";
+  import { renderRegisteredAllList } from "/src/js/api/listing/registeredAllList.mjs";
+
+  await renderUserCredit(), renderUserAvatar(), renderRegisteredAllList();
+
+  const mainContainer = document.querySelector(".mainContainer");
+  const footerContainer = document.querySelector(".footerContainer");
+  const fetchingContainer = document.querySelector(".fetchingContainer");
+  const newsLetterContainer = document.querySelector(".newsLetterContainer");
+  setTimeout(() => {
+    fetchingContainer.classList.replace("d-flex", "d-none");
+    mainContainer.classList.replace("d-none", "d-flex");
+    footerContainer.classList.replace("d-none", "d-flex");
+    newsLetterContainer.classList.replace("d-none", "d-flex");
+  }, 0);
+</script>

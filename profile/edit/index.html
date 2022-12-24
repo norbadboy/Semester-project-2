@@ -82,20 +82,107 @@
         </div>
       </nav>
     </header>
+    <h4 class="fetchingContainer m-5 d-flex">Loading page...</h4>
     <main class="flex-grow-1 container-fluid mt-4">
       <section>
-        <div id="profileContainer" class="mx-3"></div>
+        <div id="profileContainer"></div>
       </section>
-      <section class="d-flex flex-column mt-5">
-        <h2 class="mx-3">User's Listings</h2>
+      <section class="userListingBody d-none flex-column mt-5">
+        <h2>Active Listings</h2>
         <div id="userListingContainer"></div>
       </section>
     </main>
-
-    <footer class="bottom-0 py-3">
-      <div class="container-fluid">
-        <div class="col">© 2022 Thong Ho</div>
+    <section class="newsLetterContainer d-none rounded my-4">
+      <div class="newsLetterBody d-flex py-1 px-2">
+        <div class="d-flex">
+          <div class="rowContentImage d-flex flex-column flex-grow-1"></div>
+          <div class="rowContentText d-flex flex-column flex-grow-1">
+            <div>
+              <h4 style="color: white">Newsletter</h4>
+            </div>
+            <div class="mt-3">
+              <h2 style="color: white">Get updates on the latest items</h2>
+            </div>
+            <div class="rowContent d-flex flex-grow-1 mt-1">
+              <form class="newsLetterEmail">
+                <div class="newsLetterEmailContainer">
+                  <input
+                    class="emailText rounded p-1"
+                    type="text"
+                    placeholder="Your email address"
+                    name="mail"
+                    required
+                  />
+                  <button
+                    class="newsLetterEmailButton btn btn-primary"
+                    type="submit"
+                    value="Subscribe"
+                  >
+                    Subscribe <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+    <footer class="footerContainer d-none card bottom-0 p-4 m-3">
+      <section class="footer--content d-flex flex-grow-1">
+        <div class="footer--container d-flex flex-grow-1 justify-content-between">
+          <div class="row-1 d-flex flex-grow-1 justify-content-start">
+            <div class="copyright">
+              <p>&copy; 2022</p>
+              <p>Thong Ho</p>
+            </div>
+          </div>
+          <div class="row-2 d-flex flex-grow-1 justify-content-center">
+            <div class="footerItems d-flex flex-grow-1">
+              <ul class="footerNav d-flex flex-grow-1">
+                <li class="homeFooter d-flex flex-grow-1 mx-1">
+                  <a href="/">Home</a>
+                </li>
+                <li class="profileFooter d-flex flex-grow-1 mx-1">
+                  <a href="/profile/edit/">Profile</a>
+                </li>
+                <li class="allListingFooter d-flex flex-grow-1 mx-1">
+                  <a href="/listing/all/">All listings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row-3 d-flex flex-grow-1 justify-content-center">
+            <div class="footerSocial">
+              <ul class="socialFollow d-flex flex-grow-1">
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://instagram.com" target="_blank" class="d-flex">
+                    <i class="fa fa-instagram d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Instagram</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://twitter.com" target="_blank" class="d-flex">
+                    <i class="fa fa-twitter d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Twitter</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.pinterest.com" target="_blank" class="d-flex">
+                    <i class="fa fa-pinterest d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Pinterest</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.facebook.com" target="_blank" class="d-flex">
+                    <i class="fa fa-facebook d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Facebook</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </footer>
   </body>
 </html>
@@ -105,4 +192,16 @@
   import { renderUserCredit, renderUserAvatar } from "/src/js/api/listing/registeredList.mjs";
 
   await renderProfile(), renderUserCredit(), renderUserAvatar(), userListing();
+
+  const footerContainer = document.querySelector(".footerContainer");
+  const fetchingContainer = document.querySelector(".fetchingContainer");
+  const newsLetterContainer = document.querySelector(".newsLetterContainer");
+  const userListingBody = document.querySelector(".userListingBody");
+  setTimeout(() => {
+    fetchingContainer.classList.replace("d-flex", "d-none");
+    profileContainer.classList.replace("d-none", "d-flex");
+    footerContainer.classList.replace("d-none", "d-flex");
+    newsLetterContainer.classList.replace("d-none", "d-flex");
+    userListingBody.classList.replace("d-none", "d-flex");
+  }, 0);
 </script>

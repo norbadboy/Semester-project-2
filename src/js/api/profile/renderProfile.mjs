@@ -64,10 +64,10 @@ export async function userListing(name) {
                                   <h1> ${listing.title} </h1>
                                 </div>
                                 <div class="listBody d-flex">
-                                  <div class="d-flex flex-grow-1 justify-content-center">
+                                  <div class="itemImage d-flex flex-grow-1 justify-content-center">
                                     <img src="${listing.media}"
                                       alt="${listing.title}"
-                                      class="listImage rounded">
+                                      class="img-thumbnail rounded">
                                   </div>  
                                 </div>
                                 <div class="itemDescriptionBody mt-4 d-flex"> 

@@ -151,7 +151,6 @@ a {
   text-overflow: ellipsis;
   height: 85px;
   margin-top: 10px;
-  align-items: center;
   padding: 0 20px;
 }
 
@@ -185,7 +184,7 @@ a {
 }
 
 .itemImage img {
-  width: 100%;
+  width: 400px;
   height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -197,6 +196,15 @@ a {
   height: 240px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.rowContentImage {
+  background-image: url("/assets/images/newsletter-img.png");
+  background-size: cover;
+  width: 360px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 50px;
 }
 
 .fa-heart {
@@ -239,7 +247,7 @@ a {
   margin-right: 10px;
 }
 
-.socialIcon .fa:hover,
+.socialIcon .fa,
 .socialIcon p:hover {
   color: #5d55af;
 }
@@ -256,8 +264,7 @@ a {
 #userListingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 35px;
-  padding: 0 1rem;
+  grid-gap: 0 40px;
 }
 
 .registerMain {
@@ -291,6 +298,9 @@ a {
   border: 1px solid;
   border-color: #5b5b5f;
   border-radius: 10px;
+  width: 335px;
+  display: flex;
+  justify-content: start;
 }
 
 .lineStyle {
@@ -317,8 +327,26 @@ a {
   text-decoration: none;
 }
 
-.allListingFooter {
-  list-style: url("/assets/icons/folder-open-regular.svg");
+.allListingFooter a,
+.profileFooter a,
+.homeFooter a {
+  display: list-item;
+}
+
+.allListingFooter a {
+  list-style: url("/assets/icons/folder-open.png");
+}
+
+.profileFooter a {
+  list-style: url("/assets/icons/profile-user.png");
+}
+
+.homeFooter a {
+  list-style: url("/assets/icons/home.png");
+}
+
+.emailText {
+  width: 350px;
 }
 
 @media (max-width: 1400px) {
@@ -329,8 +357,25 @@ a {
   .bidForm {
     width: 75%;
   }
+  .itemImage img {
+    width: 600px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .itemDescriptionBody {
+    width: 370px;
+  }
+  .footerNav {
+    flex-direction: column;
+  }
+  .footerNav li {
+    margin-top: 10px;
+  }
 }
 @media (max-width: 975px) {
+  .cardBody {
+    padding: 50px;
+  }
   .registerMain {
     margin-top: 60px;
   }
@@ -339,7 +384,11 @@ a {
     grid-template-columns: 1fr;
   }
   .itemImage img {
-    height: 200px;
+    width: 100%;
+    height: 350px;
+  }
+  .itemDescriptionBody {
+    width: 570px;
   }
   .bidForm {
     width: 65%;
@@ -357,8 +406,11 @@ a {
   .navbarButtonContainer {
     margin-top: 20px;
   }
-  .itemImage img {
-    height: 350px;
+  .emailText {
+    width: auto;
+  }
+  .rowContentImage {
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: 700px) {
@@ -375,5 +427,12 @@ a {
   }
   .profileColumn-2 {
     margin-top: 40px;
+  }
+  .itemImage img {
+    width: 350px;
+    height: 250px;
+  }
+  .itemDescriptionBody {
+    width: 270px;
   }
 }/*# sourceMappingURL=styles.css.map */
