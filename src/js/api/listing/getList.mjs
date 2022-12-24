@@ -6,7 +6,7 @@ const action = "/listings";
 // List of all items in the database
 // Limit is set to 12 items per page
 // _bids=true&_active=true - to get bids and active items
-export async function getList(limit = 15) {
+export async function getList(limit = 12) {
   const listURL = `${API_AUCTION_PATH}${action}?limit=${limit}&_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
   const response = await fetch(listURL, {
     headers: headers("application/json"),
@@ -19,7 +19,7 @@ export async function getList(limit = 15) {
   throw new Error(response.statusText);
 }
 
-export async function getAllList(limit = 50) {
+export async function getAllList(limit = 60) {
   const listURL = `${API_AUCTION_PATH}${action}?_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc&limit=${limit}`;
   const response = await fetch(listURL, {
     headers: headers("application/json"),
