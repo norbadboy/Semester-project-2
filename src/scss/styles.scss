@@ -3,11 +3,12 @@ $backGround2Color: #fffbff;
 $btnPrimaryColor: #22005de5;
 $btnSecondaryColor: #5d55af;
 $fontColor: #2e2828;
-$fontSecondaryColor: #6a6a6f;
+$fontSecondaryColor: #5b5b5f;
 $primaryColor: #f1e7fd;
 $fontFamily: "Poppins", sans-serif;
 $desktopWidth: 1400px;
-$mobileWidth: 900px;
+$mobileWidth: 975px;
+$smallMobileWidth: 700px;
 $marginBody: 0 20px;
 
 * {
@@ -26,6 +27,7 @@ $marginBody: 0 20px;
 }
 body {
   background-color: $primaryColor;
+  padding: 0 35px;
 }
 .newsLetterContainer {
   background-color: $btnSecondaryColor;
@@ -58,6 +60,7 @@ body {
 }
 #navUserName {
   color: $fontColor;
+  font-size: 25px;
 }
 
 //navigation
@@ -78,20 +81,38 @@ body {
 }
 
 //text
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: $fontColor;
+  line-height: 30px;
+}
 h1 {
-  font-size: 34px;
+  font-size: 33px;
   font-weight: 500;
   line-height: 44px;
-  color: $fontColor;
+  letter-spacing: 2px;
 }
 h2 {
-  font-size: 27px;
+  font-size: 26px;
   font-weight: 500;
-  line-height: 30px;
-  color: $fontColor;
+}
+h3 {
+  font-size: 23px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 21px;
+}
+h5 {
+  font-size: 19px;
+  font-weight: 400;
 }
 p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
 }
 a {
@@ -122,9 +143,9 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 80px;
+  height: 85px;
   margin-top: 10px;
-  padding: 0px 15px;
+  padding: 0 20px;
 }
 .numberOfBidsText,
 .highestBidText {
@@ -152,15 +173,23 @@ a {
 
 //image
 .itemImage img {
-  width: 100%;
-  height: 330px;
+  width: 400px;
+  height: 280px;
   object-fit: cover;
   border-radius: 10px;
 }
 .frontPageImage {
   width: 100%;
-  height: 300px;
+  height: 240px;
   object-fit: contain;
+}
+.rowContentImage {
+  background-image: url("/assets/images/newsletter-img.png");
+  background-size: cover;
+  width: 360px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 50px;
 }
 
 //icons and buttons
@@ -195,16 +224,26 @@ a {
 .newsLetterEmailButton:hover {
   border-color: transparent;
 }
+#loginButton {
+  margin-right: 10px;
+}
+.socialIcon .fa,
+.socialIcon p:hover {
+  color: $btnSecondaryColor;
+}
 
 //body
+.cardBody {
+  margin: 20px 0;
+}
 .newListingContainer {
   margin: $marginBody;
 }
-.listContainer {
+.listContainer,
+#userListingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 35px;
-  padding: 0 1rem;
+  grid-gap: 0 40px;
 }
 .registerMain {
   width: auto;
@@ -214,6 +253,13 @@ a {
 .loginBody {
   background-color: $backGroundColor;
   padding: 40px;
+}
+.registerBody {
+  width: 800px;
+}
+.profileInfo {
+  display: flex;
+  flex-direction: column;
 }
 #orBody {
   margin-right: 15px;
@@ -225,12 +271,18 @@ a {
   border: 1px solid;
   border-color: $fontSecondaryColor;
   border-radius: 10px;
+  width: 335px;
+  display: flex;
+  justify-content: start;
 }
 .lineStyle {
   border: 1.2px solid $btnPrimaryColor;
   background-color: $btnPrimaryColor;
   width: 100%;
   margin: 50px;
+}
+.registerPassword {
+  margin-right: 35px;
 }
 
 //footer
@@ -244,22 +296,65 @@ a {
 .socialFollow a {
   text-decoration: none;
 }
+.allListingFooter a,
+.profileFooter a,
+.homeFooter a {
+  display: list-item;
+}
+.allListingFooter a {
+  list-style: url("/assets/icons/folder-open.png");
+}
+.profileFooter a {
+  list-style: url("/assets/icons/profile-user.png");
+}
+.homeFooter a {
+  list-style: url("/assets/icons/home.png");
+}
+.emailText {
+  width: 350px;
+}
+
 //breakpoints
 @media (max-width: $desktopWidth) {
-  .listContainer {
+  .listContainer,
+  #userListingContainer {
     grid-template-columns: 1fr 1fr;
   }
   .bidForm {
     width: 75%;
   }
+  .itemImage img {
+    width: 600px;
+    object-fit: contain;
+  }
+  .itemDescriptionBody {
+    width: 370px;
+  }
+  .footerNav {
+    flex-direction: column;
+  }
+  .footerNav li {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: $mobileWidth) {
-  .listContainer {
+  .cardBody {
+    padding: 50px;
+  }
+  .registerMain {
+    margin-top: 60px;
+  }
+  .listContainer,
+  #userListingContainer {
     grid-template-columns: 1fr;
   }
   .itemImage img {
-    height: 200px;
+    width: 100%;
+    height: 350px;
+  }
+  .itemDescriptionBody {
+    width: 570px;
   }
   .bidForm {
     width: 65%;
@@ -269,5 +364,41 @@ a {
   }
   .socialFollow {
     flex-direction: column;
+  }
+  .navbarContainer {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .navbarButtonContainer {
+    margin-top: 20px;
+  }
+  .emailText {
+    width: auto;
+  }
+  .rowContentImage {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: $smallMobileWidth) {
+  .registerRow {
+    flex-direction: column;
+  }
+  .registerBody {
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }
+  .profileBody {
+    flex-direction: column;
+  }
+  .profileColumn-2 {
+    margin-top: 40px;
+  }
+  .itemImage img {
+    width: 350px;
+    height: 250px;
+  }
+  .itemDescriptionBody {
+    width: 270px;
   }
 }

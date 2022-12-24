@@ -14,6 +14,7 @@
 
 body {
   background-color: #f1e7fd;
+  padding: 0 35px;
 }
 
 .newsLetterContainer {
@@ -53,6 +54,7 @@ body {
 
 #navUserName {
   color: #2e2828;
+  font-size: 25px;
 }
 
 #loginButton {
@@ -74,22 +76,44 @@ body {
   width: 360px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: #2e2828;
+  line-height: 30px;
+}
+
 h1 {
-  font-size: 34px;
+  font-size: 33px;
   font-weight: 500;
   line-height: 44px;
-  color: #2e2828;
+  letter-spacing: 2px;
 }
 
 h2 {
-  font-size: 27px;
+  font-size: 26px;
   font-weight: 500;
-  line-height: 30px;
-  color: #2e2828;
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+h5 {
+  font-size: 19px;
+  font-weight: 400;
 }
 
 p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -125,9 +149,9 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 80px;
+  height: 85px;
   margin-top: 10px;
-  padding: 0px 15px;
+  padding: 0 20px;
 }
 
 .numberOfBidsText,
@@ -137,7 +161,7 @@ a {
 }
 
 .numberOfBidsText {
-  color: #6a6a6f;
+  color: #5b5b5f;
   font-weight: 400;
 }
 
@@ -160,8 +184,8 @@ a {
 }
 
 .itemImage img {
-  width: 100%;
-  height: 330px;
+  width: 400px;
+  height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
@@ -169,9 +193,18 @@ a {
 
 .frontPageImage {
   width: 100%;
-  height: 300px;
+  height: 240px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.rowContentImage {
+  background-image: url("/assets/images/newsletter-img.png");
+  background-size: cover;
+  width: 360px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 50px;
 }
 
 .fa-heart {
@@ -210,15 +243,28 @@ a {
   border-color: transparent;
 }
 
+#loginButton {
+  margin-right: 10px;
+}
+
+.socialIcon .fa,
+.socialIcon p:hover {
+  color: #5d55af;
+}
+
+.cardBody {
+  margin: 20px 0;
+}
+
 .newListingContainer {
   margin: 0 20px;
 }
 
-.listContainer {
+.listContainer,
+#userListingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 35px;
-  padding: 0 1rem;
+  grid-gap: 0 40px;
 }
 
 .registerMain {
@@ -232,6 +278,15 @@ a {
   padding: 40px;
 }
 
+.registerBody {
+  width: 800px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
 #orBody {
   margin-right: 15px;
   margin-left: 5px;
@@ -241,8 +296,11 @@ a {
 
 .itemDescriptionBody {
   border: 1px solid;
-  border-color: #6a6a6f;
+  border-color: #5b5b5f;
   border-radius: 10px;
+  width: 335px;
+  display: flex;
+  justify-content: start;
 }
 
 .lineStyle {
@@ -250,6 +308,10 @@ a {
   background-color: rgba(34, 0, 93, 0.8980392157);
   width: 100%;
   margin: 50px;
+}
+
+.registerPassword {
+  margin-right: 35px;
 }
 
 .newsLetterContainer {
@@ -265,20 +327,68 @@ a {
   text-decoration: none;
 }
 
+.allListingFooter a,
+.profileFooter a,
+.homeFooter a {
+  display: list-item;
+}
+
+.allListingFooter a {
+  list-style: url("/assets/icons/folder-open.png");
+}
+
+.profileFooter a {
+  list-style: url("/assets/icons/profile-user.png");
+}
+
+.homeFooter a {
+  list-style: url("/assets/icons/home.png");
+}
+
+.emailText {
+  width: 350px;
+}
+
 @media (max-width: 1400px) {
-  .listContainer {
+  .listContainer,
+#userListingContainer {
     grid-template-columns: 1fr 1fr;
   }
   .bidForm {
     width: 75%;
   }
+  .itemImage img {
+    width: 600px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .itemDescriptionBody {
+    width: 370px;
+  }
+  .footerNav {
+    flex-direction: column;
+  }
+  .footerNav li {
+    margin-top: 10px;
+  }
 }
-@media (max-width: 900px) {
-  .listContainer {
+@media (max-width: 975px) {
+  .cardBody {
+    padding: 50px;
+  }
+  .registerMain {
+    margin-top: 60px;
+  }
+  .listContainer,
+#userListingContainer {
     grid-template-columns: 1fr;
   }
   .itemImage img {
-    height: 200px;
+    width: 100%;
+    height: 350px;
+  }
+  .itemDescriptionBody {
+    width: 570px;
   }
   .bidForm {
     width: 65%;
@@ -288,5 +398,41 @@ a {
   }
   .socialFollow {
     flex-direction: column;
+  }
+  .navbarContainer {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .navbarButtonContainer {
+    margin-top: 20px;
+  }
+  .emailText {
+    width: auto;
+  }
+  .rowContentImage {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .registerRow {
+    flex-direction: column;
+  }
+  .registerBody {
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }
+  .profileBody {
+    flex-direction: column;
+  }
+  .profileColumn-2 {
+    margin-top: 40px;
+  }
+  .itemImage img {
+    width: 350px;
+    height: 250px;
+  }
+  .itemDescriptionBody {
+    width: 270px;
   }
 }/*# sourceMappingURL=styles.css.map */

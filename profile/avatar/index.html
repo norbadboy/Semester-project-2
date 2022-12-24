@@ -29,7 +29,7 @@
   </head>
   <body class="min-vh-100 d-flex flex-column">
     <header class="py-3 sticky-top">
-      <nav class="navbar fixed-top navbar-expand-lg">
+      <nav class="navbar fixed-top navbar-toggler">
         <div class="container-fluid">
           <a class="navbar-brand" href="/listing/homepage/">
             <img src="/assets/images/logo.svg" alt="EasyBid's logo" width="150" />
@@ -38,37 +38,43 @@
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <div class="input-group">
-              <div class="form-outline"></div>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-primary" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="input-group mt-3 d-flex flex-grow-1 justify-content-end">
+              <div class="form-outline">
+                <form id="searchForm" class="d-flex">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    name="term"
+                    value=""
+                    required
+                    minlength="3"
+                  />
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
             </div>
             <ul
-              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-              style="--bs-scroll-height: 150px"
+              class="navbarBody navbar-nav me-auto my-3 my-lg-0 d-flex flex-grow-1 align-items-end"
             >
-              <li class="" id="userCredit"><a class="nav-link" href="#"></a> f</li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile/edit/">Profile</a>
+              <li class="nav-item mt-3 d-flex">
+                <div id="userAvatar"></div>
+                <div id="userName" class="d-flex align-items-center"></div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mt-3" id="userCredit"></li>
+              <li class="nav-item mt-3 mb-2">
                 <a href="#" class="btn btn-secondary" type="button" id="logoutButton">Logout</a>
               </li>
             </ul>
@@ -76,22 +82,85 @@
         </div>
       </nav>
     </header>
+    <h4 class="fetchingContainer m-5 d-flex">Loading page...</h4>
     <main class="flex-grow-1 container-fluid mt-4">
       <section>
         <div id="avatarContainer"></div>
       </section>
     </main>
-
-    <footer class="bottom-0 py-3">
-      <div class="container-fluid">
-        <div class="col">© 2022 Thong Ho</div>
-      </div>
+    <footer class="footerContainer d-flex card bottom-0 p-4 mx-2 mt-5">
+      <section class="footer--content d-flex flex-grow-1">
+        <div class="footer--container d-flex flex-grow-1 justify-content-between">
+          <div class="row-1 d-flex flex-grow-1 justify-content-start">
+            <div class="copyright">
+              <p>&copy; 2022</p>
+              <p>Thong Ho</p>
+            </div>
+          </div>
+          <div class="row-2 d-flex flex-grow-1 justify-content-center">
+            <div class="footerItems d-flex flex-grow-1">
+              <ul class="footerNav d-flex flex-grow-1">
+                <li class="homeFooter d-flex flex-grow-1 mx-1">
+                  <a href="/">Home</a>
+                </li>
+                <li class="profileFooter d-flex flex-grow-1 mx-1">
+                  <a href="/profile/edit/">Profile</a>
+                </li>
+                <li class="allListingFooter d-flex flex-grow-1 mx-1">
+                  <a href="/listing/all/">All listings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row-3 d-flex flex-grow-1 justify-content-center">
+            <div class="footerSocial">
+              <ul class="socialFollow d-flex flex-grow-1">
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://instagram.com" target="_blank" class="d-flex">
+                    <i class="fa fa-instagram d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Instagram</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://twitter.com" target="_blank" class="d-flex">
+                    <i class="fa fa-twitter d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Twitter</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.pinterest.com" target="_blank" class="d-flex">
+                    <i class="fa fa-pinterest d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Pinterest</p>
+                  </a>
+                </li>
+                <li class="socialIcon d-flex m-2">
+                  <a href="https://www.facebook.com" target="_blank" class="d-flex">
+                    <i class="fa fa-facebook d-flex flex-column justify-content-center"></i>
+                    <p class="mx-1">Facebook</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </footer>
   </body>
 </html>
 
 <script type="module">
   import { renderChangeAvatar } from "/src/js/api/profile/renderChangeAvatar.mjs";
+  import { renderUserCredit, renderUserAvatar } from "/src/js/api/listing/registeredList.mjs";
 
-  await renderChangeAvatar();
+  await renderChangeAvatar(), renderUserCredit(), renderUserAvatar();
+
+  const footerContainer = document.querySelector(".footerContainer");
+  const fetchingContainer = document.querySelector(".fetchingContainer");
+  const newsLetterContainer = document.querySelector(".newsLetterContainer");
+  setTimeout(() => {
+    fetchingContainer.classList.replace("d-flex", "d-none");
+    profileContainer.classList.replace("d-none", "d-flex");
+    footerContainer.classList.replace("d-none", "d-flex");
+    newsLetterContainer.classList.replace("d-none", "d-flex");
+  }, 0);
 </script>

@@ -4,12 +4,10 @@ import { autFetch } from "/src/js/api/headers.mjs";
 const action = "/listings";
 const method = "POST";
 
-// Create new listing
+// function to give a bid to a listing
 export async function giveBid({ amount, listingId }) {
   const amountAsNumber = Number(amount);
 
-  //  current body er 10
-  // body skal være {amount: 10}
   const createListURL = API_AUCTION_PATH + action + "/" + listingId + "/bids";
   const response = await autFetch(createListURL, {
     method: method,

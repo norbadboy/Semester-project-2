@@ -83,16 +83,20 @@
       </nav>
     </header>
     <h4 class="fetchingContainer m-5 d-flex">Loading page...</h4>
-    <main class="flex-grow-1 container-fluid mt-4">
-      <section>
-        <div id="profileContainer"></div>
+    <main class="mainContainer d-none flex-column">
+      <h1 class="mt-5 mx-2">All Listings</h1>
+      <section class="d-flex justify-content-center flex-column mx-2 mt-3">
+        <div class="listBody">
+          <div class="listContainer" id="registeredListings"></div>
+        </div>
       </section>
-      <section class="userListingBody d-none flex-column mt-5">
-        <h2>Active Listings</h2>
-        <div id="userListingContainer"></div>
-      </section>
+      <div class="d-flex separateLine">
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+        <hr class="lineStyle" />
+        <i class="fa-solid fa-plus d-flex flex-column justify-content-center px-3"></i>
+      </div>
     </main>
-    <section class="newsLetterContainer d-none rounded my-4">
+    <section class="newsLetterContainer d-none rounded">
       <div class="newsLetterBody d-flex py-1 px-2">
         <div class="d-flex">
           <div class="rowContentImage d-flex flex-column flex-grow-1"></div>
@@ -188,20 +192,19 @@
 </html>
 
 <script type="module">
-  import { renderProfile, userListing } from "/src/js/api/profile/renderProfile.mjs";
   import { renderUserCredit, renderUserAvatar } from "/src/js/api/listing/registeredList.mjs";
+  import { renderRegisteredAllList } from "/src/js/api/listing/registeredAllList.mjs";
 
-  await renderProfile(), renderUserCredit(), renderUserAvatar(), userListing();
+  await renderUserCredit(), renderUserAvatar(), renderRegisteredAllList();
 
+  const mainContainer = document.querySelector(".mainContainer");
   const footerContainer = document.querySelector(".footerContainer");
   const fetchingContainer = document.querySelector(".fetchingContainer");
   const newsLetterContainer = document.querySelector(".newsLetterContainer");
-  const userListingBody = document.querySelector(".userListingBody");
   setTimeout(() => {
     fetchingContainer.classList.replace("d-flex", "d-none");
-    profileContainer.classList.replace("d-none", "d-flex");
+    mainContainer.classList.replace("d-none", "d-flex");
     footerContainer.classList.replace("d-none", "d-flex");
     newsLetterContainer.classList.replace("d-none", "d-flex");
-    userListingBody.classList.replace("d-none", "d-flex");
   }, 0);
 </script>

@@ -1,6 +1,4 @@
-import { load } from "/src/js/storage/load.mjs";
-import { getList } from "/src/js/api/listing/getList.mjs";
-import { getCredit } from "/src/js/api/listing/getCredit.mjs";
+import { getAllList } from "/src/js/api/listing/getList.mjs";
 import { bidListener } from "/src/js/listeners/listing/bid.mjs";
 
 function renderListingInfo(item, highestBid) {
@@ -23,7 +21,6 @@ function renderListingInfo(item, highestBid) {
     item.title
   }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
           </div>
-          <div class="itemInfoContainer">
           <div class="itemDescriptionBody mt-3 d-flex"> 
             <p class="itemDescription">${item.description}</p>
           </div>
@@ -43,8 +40,6 @@ function renderListingInfo(item, highestBid) {
             <p class="bidItemText">${new Date(item.endsAt).toLocaleString()}</p>
             </div>
           </div>
-          
-          </div>
         `;
 }
 
@@ -60,8 +55,8 @@ function renderBidLog(bids) {
   return result;
 }
 
-export async function renderRegisteredList() {
-  const list = await getList();
+export async function renderRegisteredAllList() {
+  const list = await getAllList();
 
   const listContainer = document.querySelector(".listContainer");
   listContainer.innerHTML = "";
@@ -73,8 +68,8 @@ export async function renderRegisteredList() {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("itemContainer");
     itemContainer.innerHTML = `
-                             <div class="cardBody d-flex flex-column flex-grow-1 rounded text-center mt-3 p-4">
-                             <div class="d-flex">
+                             <div class="cardBody rounded text-center mt-3 p-4">
+                             <div >
                              </div class="d-flex mt-3 justify-content-center">
                                 ${renderListingInfo(item, highestBid)}
                              <div class="d-flex flex-column flex-grow-1 justify-content-start mt-2" >
@@ -113,33 +108,4 @@ export async function renderRegisteredList() {
 
   bidListener();
   return list;
-}
-
-export async function renderUserCredit() {
-  const profile = load("user");
-  const userName = profile.name;
-  const credit = await getCredit(userName);
-  const creditContainer = document.querySelector("#userCredit");
-  creditContainer.innerHTML = "";
-  const userCredit = document.createElement("div");
-  userCredit.classList.add("userCredit");
-  userCredit.innerHTML = `
-<div>
-<p>Credits: ${credit.credits}</p>
-</div>
-  `;
-  creditContainer.appendChild(userCredit);
-}
-
-export async function renderUserAvatar() {
-  const userName = document.getElementById("userName");
-  const userAvatar = document.getElementById("userAvatar");
-
-  const user = await load("user");
-  userName.innerHTML = `<a class="nav-link" id="navUserName" href="/profile/edit/">${user.name}</a>`;
-  userAvatar.innerHTML = `
-                          <a class="nav-link" href="/profile/edit/">                        
-                             <img src="${user.avatar}" alt="${user.name}" class="userImage" style="width: 70px; height: 70px">
-                          </a>
-  `;
 }
