@@ -9,6 +9,7 @@ $fontFamily: "Poppins", sans-serif;
 $desktopWidth: 1400px;
 $mobileWidth: 975px;
 $smallMobileWidth: 700px;
+$smallestMobileWidth: 500px;
 $marginBody: 0 20px;
 
 * {
@@ -381,7 +382,7 @@ a {
     margin-right: 20px;
   }
   .registerBody {
-    width: 700px;
+    width: 600px;
     justify-content: center;
     align-items: center;
   }
@@ -406,18 +407,29 @@ a {
   }
 }
 @media screen and (max-width: $smallMobileWidth) {
+  body {
+    padding: 0;
+  }
   .registerBody {
-    width: 500px;
+    width: 450px;
+    padding-right: 0;
+    padding-left: 0;
   }
   .profileBody {
     flex-direction: column;
+  }
+  .cardBody {
+    padding: 25px 0 !important;
   }
   .profileColumn-2 {
     margin-top: 40px;
   }
   .itemImage img {
-    width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 210px;
+  }
+  .frontPageImage {
+    height: auto;
   }
   .itemDescriptionBody {
     width: 270px;
@@ -438,5 +450,25 @@ a {
   .footerNav {
     justify-content: center;
     align-items: center;
+  }
+  .itemBid {
+    flex-direction: column;
+  }
+  .highestBidText {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #searchInput {
+    width: 230px !important;
+  }
+  #registerInput {
+    width: 280px !important;
+  }
+}
+
+@media (max-width: $smallestMobileWidth) {
+  .registerBody {
+    width: 350px;
+    padding-left: 20px;
   }
 }
