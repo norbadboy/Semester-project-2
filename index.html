@@ -91,7 +91,7 @@
       </section>
     </main>
 
-    <footer class="footerContainer d-none card bottom-0 p-3 m-4">
+    <footer class="footerContainer d-none card bottom-0 p-4 m-3">
       <section class="footer--content d-flex flex-grow-1">
         <div class="footer--container d-flex flex-grow-1 justify-content-around">
           <div class="row-1 d-flex flex-grow-1 justify-content-start">
@@ -138,9 +138,9 @@
 
 <script type="module">
   import { renderList } from "/src/js/api/listing/unregisteredList.mjs";
-  import { getList } from "/src/js/api/listing/getList.mjs";
+  import { getAllList } from "/src/js/api/listing/getList.mjs";
 
-  let list = await getList();
+  let list = await getAllList();
   renderList(list);
 
   const searchForm = document.getElementById("searchForm");
