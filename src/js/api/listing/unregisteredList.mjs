@@ -19,8 +19,10 @@ export async function renderList(list) {
     }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
                                 </div>
                                 <div class="itemInfoContainer"> 
+                                <div class="itemDescriptionContainer d-flex justify-content-center flex-grow-1">
                                 <div class="itemDescriptionBody my-3 d-flex">
                                 <p class="itemDescription">${item.description}</p>
+                                </div>
                                 </div>
                                 <div class="itemBid my-3 d-flex justify-content-around">
                                     <p class="numberOfBidsText">Number of bids: ${

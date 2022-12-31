@@ -24,9 +24,11 @@ function renderListingInfo(item, highestBid) {
   }" class="img-thumbnail" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/320px-Image_not_available.png'">
           </div>
           <div class="itemInfoContainer">
+          <div class="itemDescriptionContainer d-flex justify-content-center flex-grow-1">
             <div class="itemDescriptionBody mt-3 d-flex"> 
               <p class="itemDescription">${item.description}</p>
             </div>
+          </div>
             <div class="itemBid d-flex flex-column mt-2 align-items-start">
               <div class="d-flex mt-1 justify-content-center">
                 <p class="bidText">Amount of bids: </p>
