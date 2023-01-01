@@ -29,17 +29,17 @@ function renderListingInfo(item, highestBid) {
               <p class="itemDescription">${item.description}</p>
             </div>
           </div>
-            <div class="itemBid d-flex flex-column mt-2 align-items-start">
-              <div class="d-flex mt-1 justify-content-center">
+            <div class="itemBid d-flex flex-column mt-3 align-items-center">
+              <div class="d-flex mt-2 justify-content-center">
                 <p class="bidText">Amount of bids: </p>
                 <p class="bidItemText">${item._count.bids}</p>
               </div>
-              <div class="d-flex mt-1 justify-content-center">
+              <div class="d-flex mt-2 justify-content-center">
                 <i class="fas fa-dollar-sign d-flex"></i>
                 <p class="bidText">Highest bid: </p>
                 <p class="bidItemText">${highestBid}</p>
               </div>
-              <div class="d-flex mt-1 justify-content-center">
+              <div class="d-flex mt-2 justify-content-center">
                 <i class="fas fa-clock"></i>
                 <p class="bidText">Ends at: </p>
                 <p class="bidItemText">${new Date(item.endsAt).toLocaleString()}</p>

@@ -10,7 +10,7 @@ export async function renderChangeAvatar() {
                           <div class="card mt-3 p-4">
                             <div class="avatarForm">
                             <h1 class="d-flex justify-content-center">Change Avatar</h1>
-                            <div class="d-flex mt-4">
+                            <div class="d-flex mt-4 changeAvatarContainer">
                               <div class="oldAvatarBody d-flex flex-column flex-grow-1 align-items-center">
                                 <h4>Old avatar</h4>
                                   <div class="profileImage">
