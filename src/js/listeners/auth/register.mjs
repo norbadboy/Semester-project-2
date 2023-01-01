@@ -11,6 +11,7 @@ export async function registerListener() {
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
 
+      console.log(profile);
       // send the profile to the server
       try {
         register(profile);
