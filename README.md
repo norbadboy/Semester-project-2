@@ -1,5 +1,8 @@
 # Semester-project-2
 
+![image](https://github.com/norbadboy/Semester-project-2/assets/63293007/473e7011-4cae-408f-a326-d22d40abc641)
+
+
 ## Brief
 An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
 
@@ -29,3 +32,47 @@ The company CTO has set the following technical restrictions:
 - Must be hosted on an approved Static Host (Netlify)
 - Must use an approved Design Application (Adobe XD)
 - Must use an approved Planning Application (Trello)
+
+## Built With
+
+You can list a the tech stack that you've used over here
+
+- [React.js](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+
+## Getting Started
+
+### Installing
+
+  1. Clone the repo:
+
+```bash
+git clone git@github.com:norbadboy/React-CA-Thong-23.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+### Running
+
+To run the app, run the following commands:
+
+```bash
+npm run start
+```
+
+## Contact
+
+This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
+
+[My Facebook page](https://www.facebook.com/thongh/)
+
+[My LinkedIn page](https://www.linkedin.com/in/thong-trong-ho/)
+
+
+## Link to live website
+
+https://thong-ho-semester-project-2.netlify.app/
