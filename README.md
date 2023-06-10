@@ -37,8 +37,9 @@ The company CTO has set the following technical restrictions:
 
 You can list a the tech stack that you've used over here
 
-- [React.js](https://reactjs.org/)
+- HTML
 - [Bootstrap](https://getbootstrap.com)
+- [SASS](https://sass-lang.com/)
 
 ## Getting Started
 
